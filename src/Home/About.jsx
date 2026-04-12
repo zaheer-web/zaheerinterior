@@ -65,7 +65,7 @@ function About() {
                   24/7 Consultation
                 </p>
                 <p className="text-gray-400">
-                  +91-9411096122
+                  91 85639 80030
                 </p>
               </div>
 

@@ -5,7 +5,7 @@ import { Typewriter } from "react-simple-typewriter";
 // ✅ Local Images
 import hero1 from "../img/h-54.png";
 import hero2 from "../img/h-57.png";
-import hero3 from "../img/h-68.png";
+import hero3 from "../img/h-62.png";
 import hero4 from "../img/h-53.png";
 
 const sliderImages = [hero1, hero2, hero3, hero4];
@@ -24,7 +24,7 @@ const Hero = () => {
 
   return (
     <div className="w-full overflow-x-hidden relative">
-      <section className="relative w-full h-[85vh] sm:h-[90vh] md:h-[95vh] overflow-hidden bg-black">
+      <section className="relative w-full h-[60vh] sm:h-[70vh] md:h-[85vh] lg:h-[95vh] overflow-hidden bg-black">
 
         {/* 🔥 Slider Images */}
         <AnimatePresence>

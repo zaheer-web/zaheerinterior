@@ -24,7 +24,7 @@ const AboutHero = () => {
   return (
     <div className="w-full overflow-x-hidden relative">
 
-      <section className="relative w-full h-[85vh] sm:h-[90vh] md:h-[95vh] overflow-hidden bg-black">
+      <section className="relative w-full h-[60vh] sm:h-[70vh] md:h-[85vh] lg:h-[95vh] overflow-hidden bg-black">
 
         {/* Image */}
         <AnimatePresence>

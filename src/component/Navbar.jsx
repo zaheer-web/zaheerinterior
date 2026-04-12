@@ -54,7 +54,7 @@ export default function Navbar() {
 
         {/* Desktop Button */}
         <a
-          href="https://wa.me/919411096122?text=Hello%2C%20I%20want%20interior%20design%20consultation."
+          href="https://wa.me/918563980030?text=Hello%2C%20I%20want%20interior%20design%20consultation."
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -96,7 +96,7 @@ export default function Navbar() {
 
             {/* Mobile Button */}
             <a
-              href="https://wa.me/919411096122?text=Hello%2C%20I%20want%20interior%20design%20consultation."
+              href="https://wa.me/918563980030?text=Hello%2C%20I%20want%20interior%20design%20consultation."
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMenuOpen(false)}

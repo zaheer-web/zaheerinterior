@@ -141,7 +141,7 @@ Your City, India
 <Phone size={20}/>
 </div>
 <p className="text-gray-300">
-+91-XXXXXXXXXX
+91 85639 80030 
 </p>
 </div>
 
@@ -150,7 +150,7 @@ Your City, India
 <Mail size={20}/>
 </div>
 <p className="text-gray-300">
-pinkroofinteriors@gmail.com
+contact.pinkroof@gmail.com
 </p>
 </div>
 

@@ -33,7 +33,7 @@ export default function ConsultantHero7() {
 
         {/* 🔥 WhatsApp Button */}
         <a
-          href="https://wa.me/919411096122"
+          href="https://wa.me/918563980030"
           target="_blank"
           rel="noopener noreferrer"
         >

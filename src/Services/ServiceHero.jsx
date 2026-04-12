@@ -25,7 +25,7 @@ const ServiceHero = () => {
   return (
     <div className="w-full overflow-x-hidden relative">
 
-      <section className="relative w-full h-[70vh] sm:h-[80vh] md:h-[90vh] overflow-hidden bg-black">
+      <section className="relative w-full h-[60vh] sm:h-[70vh] md:h-[85vh] lg:h-[95vh] overflow-hidden bg-black">
 
         {/* 🔥 Image with cinematic animation */}
         <AnimatePresence>
@@ -92,7 +92,7 @@ const ServiceHero = () => {
             {/* 🔥 CTA */}
             <div className="mt-8">
               <a
-                href="https://wa.me/919411096122"
+                href="https://wa.me/918563980030"
                 target="_blank"
                 rel="noopener noreferrer"
               >
