@@ -13,28 +13,30 @@ export default function Navbar() {
       : "text-gray-300 hover:text-pink-400 transition duration-300";
 
   return (
-    <nav className="fixed w-full top-0 left-0 z-50 
+    <nav
+      className="fixed w-full top-0 left-0 z-50 
       bg-gradient-to-r from-black via-black/90 to-black/80 
       backdrop-blur-xl border-b border-white/10
-      before:absolute before:inset-0 before:bg-[url('https://www.transparenttextures.com/patterns/asfalt-light.png')] before:opacity-10 before:pointer-events-none">
-
+      before:absolute before:inset-0 before:bg-[url('https://www.transparenttextures.com/patterns/asfalt-light.png')] before:opacity-10 before:pointer-events-none"
+    >
       <div className="relative max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
 
         {/* 🔥 Logo + Name */}
-        <Link to="/" className="flex items-center gap-3 group">
-
+        <Link to="/" className="flex items-center gap-2 md:gap-3 group">
+          
           {/* Logo */}
           <img
-  src={logo}
-  alt="logo"
-  className="h-14 w-auto object-contain"
-/>
+            src={logo}
+            alt="logo"
+            className="h-10 md:h-12 w-auto object-contain pt-2"
+          />
+
           {/* Brand Name */}
-          <div className="flex flex-col leading-tight">
-            <span className="text-white text-lg font-bold tracking-wide group-hover:text-pink-400 transition">
+          <div className="flex items-center gap-1 leading-none">
+            <span className="text-white text-base md:text-lg font-bold tracking-wide group-hover:text-pink-400 transition">
               Pink Roof
             </span>
-            <span className="text-pink-500 text-sm font-semibold tracking-widest">
+            <span className="text-pink-500 text-sm md:text-base font-semibold tracking-wide">
               Interiors
             </span>
           </div>
@@ -43,13 +45,11 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-10 font-semibold items-center">
-
           <NavLink to="/" className={navLinkClass}>HOME</NavLink>
           <NavLink to="/services" className={navLinkClass}>SERVICES</NavLink>
           <NavLink to="/about" className={navLinkClass}>ABOUT</NavLink>
           <NavLink to="/gallery" className={navLinkClass}>GALLERY</NavLink>
           <NavLink to="/contact" className={navLinkClass}>CONTACT</NavLink>
-
         </ul>
 
         {/* Desktop Button */}
@@ -60,6 +60,7 @@ export default function Navbar() {
         >
           <motion.button
             whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
             className="hidden md:flex items-center gap-2 
             bg-pink-500 text-black px-6 py-2 rounded-lg font-semibold 
             hover:bg-pink-400 transition shadow-lg shadow-pink-500/40"

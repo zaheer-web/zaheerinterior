@@ -2,20 +2,20 @@ import { motion } from "framer-motion";
 
 const steps = [
   {
-    title: "Consultation",
-    desc: "We understand your space, requirements, and design preferences.",
+    title: "Client Consultation",
+    desc: "We begin by understanding your requirements, lifestyle, budget, and design preferences to define a clear vision.",
   },
   {
-    title: "Design Planning",
-    desc: "Our team creates a personalized layout and concept design.",
+    title: "Concept & Space Planning",
+    desc: "Detailed layouts and design concepts are developed to optimize space, functionality, and aesthetics.",
   },
   {
-    title: "3D Visualization",
-    desc: "We show you realistic 3D previews before execution.",
+    title: "3D Visualization & Design Approval",
+    desc: "Realistic 3D renders help you visualize the final outcome and make informed decisions before execution.",
   },
   {
-    title: "Execution",
-    desc: "Our experts bring the design to life with quality materials.",
+    title: "Execution & Site Coordination",
+    desc: "We manage on-site execution, contractors, and materials to ensure quality, precision, and timely delivery.",
   },
 ];
 
@@ -40,9 +40,9 @@ const card = {
 
 export default function ProcessHero6() {
   return (
-    <section className="relative py-10 bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden">
+    <section className="relative py-20 bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden">
 
-      {/* 🔥 Pink Glow */}
+      {/* Glow */}
       <div className="absolute -top-20 left-0 w-80 h-80 bg-pink-500/10 blur-[120px] rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-400/10 blur-[120px] rounded-full"></div>
 
@@ -55,13 +55,13 @@ export default function ProcessHero6() {
           transition={{ duration: 0.7 }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
             Our <span className="text-pink-500">Design Process</span>
           </h2>
 
-          <p className="text-gray-400 mt-4 max-w-xl mx-auto">
-            From concept to completion, we follow a structured process
-            to deliver stunning interior designs.
+          <p className="text-gray-400 mt-5 max-w-2xl mx-auto leading-relaxed">
+            From initial consultation to final execution, our structured process ensures
+            clarity, efficiency, and exceptional results at every stage.
           </p>
         </motion.div>
 
@@ -81,10 +81,10 @@ export default function ProcessHero6() {
               className="group relative p-10 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-xl hover:shadow-pink-500/20 overflow-hidden text-center md:text-left"
             >
 
-              {/* 🔥 Glow Hover */}
+              {/* Glow Hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
 
-              {/* Step number */}
+              {/* Number */}
               <div className="text-6xl font-extrabold text-white/10 mb-6 group-hover:text-pink-500/20 transition">
                 0{index + 1}
               </div>
@@ -94,12 +94,12 @@ export default function ProcessHero6() {
                 {step.title}
               </h3>
 
-              {/* Description */}
-              <p className="text-gray-400 leading-relaxed mx-auto md:mx-0">
+              {/* Desc */}
+              <p className="text-gray-400 leading-relaxed">
                 {step.desc}
               </p>
 
-              {/* 🔥 Bottom line */}
+              {/* Bottom line */}
               <div className="absolute bottom-0 left-0 h-1 w-0 bg-pink-500 group-hover:w-full transition-all duration-500"></div>
 
             </motion.div>
@@ -107,7 +107,6 @@ export default function ProcessHero6() {
         </motion.div>
 
       </div>
-
     </section>
   );
 }

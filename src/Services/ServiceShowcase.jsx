@@ -2,11 +2,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
+// ✅ Import Image
+import showcaseImg from "../img/h-53.png";
+
 const ServiceShowcase = () => {
   return (
-    <section className="relative py-15 bg-black text-white overflow-hidden">
+    <section className="relative py-20 bg-black text-white overflow-hidden">
 
-      {/* 🔥 Pink Glow */}
+      {/* Glow */}
       <div className="absolute -top-20 -left-20 w-80 h-80 bg-pink-500/20 blur-[120px] rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-400/20 blur-[120px] rounded-full"></div>
 
@@ -20,9 +23,9 @@ const ServiceShowcase = () => {
           className="overflow-hidden rounded-2xl shadow-2xl shadow-pink-500/10"
         >
           <img
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
-            alt="Interior Design"
-            className="w-full h-full object-cover hover:scale-110 transition duration-700"
+            src={showcaseImg}
+            alt="Interior Project"
+            className="w-full h-full object-cover transition duration-700 hover:scale-110"
           />
         </motion.div>
 
@@ -34,22 +37,24 @@ const ServiceShowcase = () => {
           className="text-center md:text-left"
         >
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Interior <span className="text-pink-500">Design</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold leading-tight">
+            Crafting Spaces that{" "}
+            <span className="text-pink-500">Inspire</span>
           </h2>
 
-          <p className="text-gray-300 leading-relaxed mb-8 max-w-xl mx-auto md:mx-0">
-            Interior design is more than just styling — it’s about creating spaces 
-            that feel comfortable, functional, and visually stunning. At Pink Roof 
-            Interiors, we design personalized interiors that reflect your lifestyle 
-            while combining elegance, practicality, and modern aesthetics.
+          <p className="text-gray-400 leading-relaxed mt-6 mb-8 max-w-xl mx-auto md:mx-0">
+            At Pink Roof Interiors, we go beyond design — we create environments 
+            that elevate everyday living. From concept to execution, every detail 
+            is thoughtfully curated to deliver spaces that are elegant, functional, 
+            and truly unforgettable.
           </p>
 
+          {/* CTA */}
           <Link to="/gallery-grid">
             <div className="flex justify-center md:justify-start">
               <button className="px-8 py-3 bg-pink-500 text-black font-semibold rounded-lg 
               hover:bg-pink-400 transition shadow-lg shadow-pink-500/40 hover:scale-105">
-                View Projects
+                Explore Our Projects
               </button>
             </div>
           </Link>

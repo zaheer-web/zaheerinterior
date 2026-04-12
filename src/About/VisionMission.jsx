@@ -7,50 +7,44 @@ const data = [
     number: "01",
     title: "Our Vision",
     icon: <Eye size={28} />,
-    desc: "Our vision is to create elegant, functional and inspiring interior spaces that reflect individuality and enhance everyday living. We aim to bring creativity, comfort and timeless design together in every project we deliver."
+    desc: "To craft refined, timeless interiors that elevate everyday living — creating spaces that reflect individuality, inspire comfort, and deliver lasting aesthetic value."
   },
   {
     number: "02",
     title: "Our Mission",
     icon: <Target size={28} />,
-    desc: "Our mission is to provide personalized interior design solutions with attention to detail, innovation and quality. We work closely with clients to transform their ideas into stylish, practical and budget-friendly spaces."
+    desc: "To deliver personalized, high-quality interior design solutions through thoughtful planning, innovative execution, and close collaboration — transforming ideas into functional, elegant spaces."
   }
 ];
 
 export default function VisionMission() {
   return (
+    <section className="relative py-20 bg-black text-white overflow-hidden">
 
-    <section className="relative py-15 bg-black text-white overflow-hidden">
-
-      {/* 🔥 Pink Glow */}
+      {/* Glow */}
       <div className="absolute -top-20 -left-20 w-96 h-96 bg-pink-500/20 blur-[140px] rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-400/20 blur-[140px] rounded-full"></div>
 
       <div className="relative max-w-6xl mx-auto px-6">
 
         {/* Heading */}
-
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           className="text-center mb-20"
         >
-
-          <h2 className="text-4xl md:text-5xl font-extrabold">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
             Our <span className="text-pink-500">Vision & Mission</span>
           </h2>
 
-          <p className="mt-6 text-gray-400 max-w-2xl mx-auto">
-            We believe interior design should create meaningful spaces that inspire,
-            comfort and elevate everyday living.
+          <p className="mt-6 text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            We believe great design is not just about how a space looks — 
+            but how it feels, functions, and enhances everyday experiences.
           </p>
-
         </motion.div>
 
-
         {/* Grid */}
-
         <div className="grid md:grid-cols-2 gap-8">
 
           {data.map((item, index) => (
@@ -64,7 +58,7 @@ export default function VisionMission() {
               className="group relative p-10 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-pink-500 transition overflow-hidden"
             >
 
-              {/* 🔥 Hover Glow */}
+              {/* Glow */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-pink-500/20 to-transparent"></div>
 
               <div className="relative z-10">
@@ -75,7 +69,7 @@ export default function VisionMission() {
                 </span>
 
                 {/* Icon */}
-                <div className="mb-5 text-pink-500">
+                <div className="mb-5 text-pink-500 group-hover:scale-110 transition">
                   {item.icon}
                 </div>
 
@@ -84,8 +78,8 @@ export default function VisionMission() {
                   {item.title}
                 </h3>
 
-                {/* Description */}
-                <p className="text-gray-400 text-sm leading-relaxed">
+                {/* Desc */}
+                <p className="text-gray-300 leading-relaxed">
                   {item.desc}
                 </p>
 
@@ -100,6 +94,5 @@ export default function VisionMission() {
       </div>
 
     </section>
-
   );
 }

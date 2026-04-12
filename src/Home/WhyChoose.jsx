@@ -2,28 +2,29 @@ import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 
-import img1 from "../img/hero2.jpg";
-import img2 from "../img/hero3.jpg";
+// ✅ Clean imports
+import img1 from "../img/h-5.png";
+import img2 from "../img/h-6.png";
 
 const points = [
-  "Thoughtful, context-driven design – not trend-based, but timeless and site-responsive.",
-  "Direct principal architect involvement – clear vision, accountability, and quality control.",
-  "Luxury made affordable – premium design sensibility delivered at highly budget-friendly costs.",
-  "Smart cost optimization – maximum visual and spatial impact without unnecessary expenditure.",
-  "Strong balance of aesthetics & practicality – beautiful spaces that actually work."
+  "Timeless, context-driven designs tailored to your space.",
+  "Direct involvement of principal designer ensuring quality.",
+  "Luxury aesthetics delivered within practical budgets.",
+  "Smart cost optimization without compromising impact.",
+  "Perfect balance of beauty, functionality, and comfort."
 ];
 
 function WhyChoose() {
   return (
-    <section className="relative py-10 bg-black text-white overflow-hidden">
+    <section className="relative py-16 bg-black text-white overflow-hidden">
 
-      {/* 🔥 Pink Glow */}
+      {/* Glow */}
       <div className="absolute -top-20 -left-20 w-80 h-80 bg-pink-500/20 blur-[120px] rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-400/20 blur-[120px] rounded-full"></div>
 
       <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
 
-        {/* TEXT CONTENT */}
+        {/* TEXT */}
         <motion.div
           initial={{ opacity: 0, x: 80 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -31,46 +32,34 @@ function WhyChoose() {
           className="order-1 lg:order-2 text-center lg:text-left"
         >
 
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-wide">
-            WHY <span className="text-pink-500">CHOOSE US</span>
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
+            Why <span className="text-pink-500">Choose Us</span>
           </h2>
 
-          <p className="mt-6 text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
-            Our approach focuses on thoughtful design, cost efficiency and
-            delivering timeless spaces that truly enhance the way people live and work.
+          <p className="mt-6 text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0">
+            We design with purpose — combining creativity, practicality, and precision 
+            to deliver spaces that feel refined, functional, and truly yours.
           </p>
 
-          {/* Points List */}
+          {/* Points */}
           <div className="mt-10 space-y-5">
-
             {points.map((item, index) => (
-
-              <div
-                key={index}
-                className="flex items-start gap-3 justify-center lg:justify-start"
-              >
-
-                <div className="bg-pink-500 text-black p-2 rounded-full mt-1 shadow-md shadow-pink-500/40">
+              <div key={index} className="flex items-start gap-3 justify-center lg:justify-start group">
+                <div className="bg-pink-500 text-black p-2 rounded-full mt-1 shadow-md shadow-pink-500/40 group-hover:scale-110 transition">
                   <CheckCircle size={18}/>
                 </div>
-
-                <p className="text-gray-400 leading-relaxed max-w-lg">
+                <p className="text-gray-300 leading-relaxed max-w-lg group-hover:text-white transition">
                   {item}
                 </p>
-
               </div>
-
             ))}
-
           </div>
 
         </motion.div>
 
-
-        {/* IMAGE SECTION */}
+        {/* IMAGES */}
         <div className="order-2 lg:order-1 grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
 
-          {/* IMAGE 1 */}
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -79,12 +68,11 @@ function WhyChoose() {
           >
             <img
               src={img1}
-              className="w-full h-[240px] object-cover hover:scale-110 transition duration-700"
-              alt=""
+              alt="Interior Project"
+              className="w-full h-[260px] object-cover transition duration-700 hover:scale-110"
             />
           </motion.div>
 
-          {/* TALL IMAGE */}
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -93,27 +81,22 @@ function WhyChoose() {
           >
             <img
               src={img2}
-              className="w-full h-[240px] lg:h-full object-cover hover:scale-110 transition duration-700"
-              alt=""
+              alt="Interior Design"
+              className="w-full h-[260px] lg:h-full object-cover transition duration-700 hover:scale-110"
             />
           </motion.div>
 
-          {/* 🔥 STATS BOX */}
+          {/* Stats */}
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="bg-gradient-to-br from-pink-500 to-pink-400 text-black flex flex-col justify-center items-center text-center p-10 rounded-2xl shadow-xl shadow-pink-500/40"
           >
-
-            <h2 className="text-5xl font-extrabold">
-              12K+
-            </h2>
-
-            <p className="mt-3 text-lg font-semibold tracking-wider">
-              PROJECT PORTFOLIO
+            <h2 className="text-4xl md:text-5xl font-extrabold">50+</h2>
+            <p className="mt-2 text-sm font-semibold tracking-wider uppercase">
+              Projects Delivered
             </p>
-
           </motion.div>
 
         </div>

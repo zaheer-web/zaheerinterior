@@ -2,68 +2,67 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
-const images = [
-"https://images.unsplash.com/photo-1618221195710-dd6b41faaea6",
-"https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
-"https://images.unsplash.com/photo-1616594039964-ae9021a400a0",
-"https://images.unsplash.com/photo-1497366216548-37526070297c",
-"https://images.unsplash.com/photo-1616486338812-3dadae4b4ace",
-"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0"
-];
+// ✅ Import Images
+import img1 from "../img/h-7.png";
+import img2 from "../img/h-8.png";
+import img3 from "../img/h-9.png";
+import img4 from "../img/h-10.png";
+import img5 from "../img/h-12.png";
+import img6 from "../img/h-14.png";
+
+const images = [img1, img2, img3, img4, img5, img6];
 
 const InteriorGallery = () => {
 
-  const [index,setIndex] = useState(null);
+  const [index, setIndex] = useState(null);
 
   const next = () => {
-    setIndex((prev)=> (prev + 1) % images.length);
+    setIndex((prev) => (prev + 1) % images.length);
   };
 
   const prev = () => {
-    setIndex((prev)=> (prev - 1 + images.length) % images.length);
+    setIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
   return (
 
-    <section className="relative py-10 bg-black text-white overflow-hidden">
+    <section className="relative py-16 bg-black text-white overflow-hidden">
 
-      {/* 🔥 Pink Glow */}
+      {/* Glow */}
       <div className="absolute -top-20 left-0 w-80 h-80 bg-pink-500/10 blur-[120px] rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-400/10 blur-[120px] rounded-full"></div>
 
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Heading */}
-
         <motion.h2
           initial={{ opacity:0, y:40 }}
           whileInView={{ opacity:1, y:0 }}
           transition={{ duration:0.7 }}
-          className="text-4xl font-bold text-center mb-16"
+          className="text-4xl md:text-5xl font-extrabold text-center mb-16"
         >
           Interior <span className="text-pink-500">Gallery</span>
         </motion.h2>
 
         {/* GRID */}
-
         <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
 
-          {images.map((img,i)=>(
+          {images.map((img, i) => (
 
             <motion.div
               key={i}
-              whileHover={{ scale:1.05 }}
+              whileHover={{ scale:1.04 }}
               className="relative overflow-hidden rounded-xl shadow-xl cursor-pointer group"
-              onClick={()=>setIndex(i)}
+              onClick={() => setIndex(i)}
             >
 
               <img
                 src={img}
-                alt=""
-                className="w-full object-cover group-hover:scale-110 transition duration-700"
+                alt={`Project ${i + 1}`}
+                className="w-full object-cover transition duration-700 group-hover:scale-110"
               />
 
-              {/* 🔥 Hover Overlay */}
+              {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-pink-500/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
 
             </motion.div>
@@ -75,66 +74,60 @@ const InteriorGallery = () => {
       </div>
 
       {/* LIGHTBOX */}
-
       <AnimatePresence>
 
-      {index !== null && (
+        {index !== null && (
 
-        <motion.div
-          initial={{ opacity:0 }}
-          animate={{ opacity:1 }}
-          exit={{ opacity:0 }}
-          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center"
-        >
-
-          {/* CLOSE */}
-
-          <button
-            onClick={()=>setIndex(null)}
-            className="absolute top-8 right-8 text-white hover:text-pink-500 transition"
+          <motion.div
+            initial={{ opacity:0 }}
+            animate={{ opacity:1 }}
+            exit={{ opacity:0 }}
+            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center"
           >
-            <X size={32}/>
-          </button>
 
-          {/* LEFT */}
+            {/* Close */}
+            <button
+              onClick={() => setIndex(null)}
+              className="absolute top-8 right-8 text-white hover:text-pink-500 transition"
+            >
+              <X size={32}/>
+            </button>
 
-          <button
-            onClick={prev}
-            className="absolute left-6 text-white hover:text-pink-500 transition"
-          >
-            <ChevronLeft size={40}/>
-          </button>
+            {/* Left */}
+            <button
+              onClick={prev}
+              className="absolute left-6 text-white hover:text-pink-500 transition"
+            >
+              <ChevronLeft size={40}/>
+            </button>
 
-          {/* IMAGE */}
+            {/* Image */}
+            <motion.img
+              key={index}
+              src={images[index]}
+              initial={{ scale:0.9, opacity:0 }}
+              animate={{ scale:1, opacity:1 }}
+              transition={{ duration:0.4 }}
+              className="max-h-[80vh] rounded-xl shadow-2xl shadow-pink-500/20"
+            />
 
-          <motion.img
-            key={index}
-            src={images[index]}
-            initial={{ scale:0.9, opacity:0 }}
-            animate={{ scale:1, opacity:1 }}
-            transition={{ duration:0.4 }}
-            className="max-h-[80vh] rounded-xl shadow-2xl shadow-pink-500/20"
-          />
+            {/* Right */}
+            <button
+              onClick={next}
+              className="absolute right-6 text-white hover:text-pink-500 transition"
+            >
+              <ChevronRight size={40}/>
+            </button>
 
-          {/* RIGHT */}
+          </motion.div>
 
-          <button
-            onClick={next}
-            className="absolute right-6 text-white hover:text-pink-500 transition"
-          >
-            <ChevronRight size={40}/>
-          </button>
-
-        </motion.div>
-
-      )}
+        )}
 
       </AnimatePresence>
 
     </section>
 
   );
-
 };
 
 export default InteriorGallery;

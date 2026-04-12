@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 
-const sliderImages = [
-  "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600",
-  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1600",
-  "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1600",
-  "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1600"
-];
+// ✅ Local Images
+import hero1 from "../img/h-54.png";
+import hero2 from "../img/h-57.png";
+import hero3 from "../img/h-68.png";
+import hero4 from "../img/h-53.png";
+
+const sliderImages = [hero1, hero2, hero3, hero4];
 
 const Hero = () => {
-
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // 🔁 Auto Slide
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % sliderImages.length);
@@ -22,49 +23,40 @@ const Hero = () => {
   }, []);
 
   return (
-
     <div className="w-full overflow-x-hidden relative">
-
       <section className="relative w-full h-[85vh] sm:h-[90vh] md:h-[95vh] overflow-hidden bg-black">
 
-        {/* Slider Images */}
-        {sliderImages.map((img, index) => (
+        {/* 🔥 Slider Images */}
+        <AnimatePresence>
           <motion.img
-            key={index}
-            src={img}
-            initial={false}
-            animate={{
-              y: index === currentIndex ? "0%" : "-100%",
-              opacity: index === currentIndex ? 1 : 0
-            }}
-            transition={{
-              duration: 1,
-              ease: [0.4, 0, 0.2, 1]
-            }}
-            className="absolute inset-0 w-full h-full object-cover"
+            key={currentIndex}
+            src={sliderImages[currentIndex]}
+            initial={{ opacity: 0, scale: 1.08 }}
+            animate={{ opacity: 1, scale: 1.02 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2 }}
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
-        ))}
+        </AnimatePresence>
 
-        {/* 🔥 Overlay (black + pink gradient) */}
-        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/90 via-black/60 to-pink-900/30 z-10" />
+        {/* 🌑 Overlay (Better cinematic look) */}
+        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/95 via-black/70 to-pink-900/40 z-10" />
 
-        {/* Hero Content */}
-        <div className="absolute inset-0 flex items-center justify-center md:justify-start px-6 md:px-24 lg:px-32 pt-24 sm:pt-20 md:pt-0 z-20">
+        {/* ✨ Content */}
+        <div className="absolute inset-0 flex items-center justify-center md:justify-start px-6 md:px-24 lg:px-32 z-20">
 
           <motion.div
             key={currentIndex}
-            initial={{ x: -40, opacity: 0 }}
+            initial={{ x: -60, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
             className="text-center md:text-left text-white max-w-2xl"
           >
 
-            {/* Heading */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight">
 
               Luxury{" "}
-
-              <span className="text-pink-500 inline-block min-w-[240px] drop-shadow-lg">
+              <span className="text-pink-500 inline-block min-w-[260px] drop-shadow-xl">
 
                 <Typewriter
                   words={[
@@ -72,7 +64,7 @@ const Hero = () => {
                     "Architecture",
                     "Space Planning"
                   ]}
-                  loop={true}
+                  loop
                   cursor
                   cursorStyle="|"
                   typeSpeed={80}
@@ -82,46 +74,35 @@ const Hero = () => {
 
               </span>
 
-              <br />
-
-              Studio
+              <br />Studio
 
             </h1>
 
-            {/* Paragraph */}
-            <p className="mt-6 text-lg text-gray-300 max-w-lg mx-auto md:mx-0">
-
-              We design modern interiors that blend elegance,
-              functionality and timeless aesthetics to create
-              inspiring spaces for living and working.
-
+            <p className="mt-6 text-lg text-gray-300 max-w-lg mx-auto md:mx-0 leading-relaxed">
+              Crafting refined interiors that blend luxury, functionality, and timeless aesthetics.
             </p>
 
           </motion.div>
 
         </div>
 
-        {/* 🔥 Slider Dots (pink theme) */}
+        {/* 🔘 Slider Dots */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-30">
-
           {sliderImages.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`h-2 transition-all duration-300 rounded-full ${
                 currentIndex === index
-                  ? "w-10 bg-pink-500 shadow-md shadow-pink-500/50"
+                  ? "w-10 bg-pink-500 shadow-lg shadow-pink-500/50"
                   : "w-2 bg-white/40"
               }`}
             />
           ))}
-
         </div>
 
       </section>
-
     </div>
-
   );
 };
 

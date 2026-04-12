@@ -1,6 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
+// ✅ Import images
+import beforeImg from  "../img/h-14.png";
+import afterImg from "../img/h-62.png";
+
 const BeforeAfter = () => {
 
   const containerRef = useRef(null);
@@ -11,7 +15,6 @@ const BeforeAfter = () => {
 
   // AUTO MOTION
   useEffect(() => {
-
     let direction = 1;
 
     const interval = setInterval(() => {
@@ -35,14 +38,10 @@ const BeforeAfter = () => {
 
   // UPDATE POSITION
   const updatePosition = (clientX) => {
-
     const rect = containerRef.current.getBoundingClientRect();
     const x = clientX - rect.left;
-
     const percent = (x / rect.width) * 100;
-
     setPosition(Math.max(0, Math.min(100, percent)));
-
   };
 
   const handleMouseMove = (e) => {
@@ -54,10 +53,9 @@ const BeforeAfter = () => {
   };
 
   return (
+    <section className="relative py-16 bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden">
 
-    <section className="relative py-10 bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden">
-
-      {/* 🔥 Pink Glow */}
+      {/* Glow */}
       <div className="absolute -top-20 left-0 w-96 h-96 bg-pink-500/10 blur-[140px] rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-400/10 blur-[140px] rounded-full"></div>
 
@@ -65,18 +63,15 @@ const BeforeAfter = () => {
 
         {/* Heading */}
         <div className="text-center mb-16">
-
           <h2 className="text-4xl md:text-5xl font-bold">
             Before <span className="text-pink-500">&</span> After
           </h2>
-
           <p className="text-gray-400 mt-4">
-            See how we transform ordinary spaces into beautiful interiors
+            Transforming spaces with thoughtful design and execution
           </p>
-
         </div>
 
-        {/* SLIDER */}
+        {/* Slider */}
         <div
           ref={containerRef}
           className="relative w-full h-[420px] rounded-2xl overflow-hidden shadow-2xl select-none"
@@ -88,26 +83,26 @@ const BeforeAfter = () => {
           onTouchEnd={() => setIsDragging(false)}
         >
 
-          {/* AFTER IMAGE */}
+          {/* AFTER */}
           <img
-            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6"
+            src={afterImg}
             className="absolute w-full h-full object-cover"
-            alt=""
+            alt="After Design"
           />
 
-          {/* BEFORE IMAGE */}
+          {/* BEFORE */}
           <div
             className="absolute top-0 left-0 h-full overflow-hidden"
             style={{ width: `${position}%` }}
           >
             <img
-              src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85"
+              src={beforeImg}
               className="w-full h-full object-cover"
-              alt=""
+              alt="Before Design"
             />
           </div>
 
-          {/* 🔥 HANDLE */}
+          {/* HANDLE */}
           <motion.div
             className="absolute top-0 h-full flex items-center justify-center cursor-ew-resize"
             style={{ left: `${position}%` }}
@@ -130,9 +125,7 @@ const BeforeAfter = () => {
       </div>
 
     </section>
-
   );
-
 };
 
 export default BeforeAfter;
