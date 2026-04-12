@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// ✅ LOCAL IMAGE IMPORT (same image for all)
+// ✅ LOCAL IMAGE IMPORT
 import villa from "../img/h-10.png";
 import urban from "../img/h-21.png";
 import residence from "../img/h-60.png";
@@ -63,7 +63,6 @@ return(
 <>
 
 {/* FEATURED PROJECT */}
-
 <section className="relative h-[80vh] flex items-center justify-center text-white overflow-hidden">
 
 <img
@@ -80,7 +79,7 @@ transition={{duration:0.8}}
 className="relative text-center max-w-3xl px-6"
 >
 
-<p className="text-yellow-500 uppercase tracking-[4px] mb-4">
+<p className="text-pink-500 uppercase tracking-[4px] mb-4">
 Featured Project
 </p>
 
@@ -94,7 +93,7 @@ Featured Project
 
 <button
 onClick={()=>setIndex(0)}
-className="bg-yellow-500 text-black px-8 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition"
+className="bg-pink-500 text-black px-8 py-3 rounded-lg font-semibold hover:bg-pink-400 transition shadow-lg shadow-pink-500/40"
 >
 View Project
 </button>
@@ -105,19 +104,18 @@ View Project
 
 
 {/* PORTFOLIO GRID */}
-
 <section className="py-24 bg-black text-white">
 
 <div className="max-w-7xl mx-auto px-6">
 
 <div className="text-center mb-16">
 
-<p className="text-yellow-500 uppercase tracking-[4px] mb-4">
+<p className="text-pink-500 uppercase tracking-[4px] mb-4">
 Our Portfolio
 </p>
 
 <h2 className="text-4xl md:text-5xl font-bold">
-Selected <span className="text-yellow-500">Projects</span>
+Selected <span className="text-pink-500">Projects</span>
 </h2>
 
 </div>
@@ -148,7 +146,7 @@ className="w-full h-[380px] object-cover group-hover:scale-110 transition durati
 {project.title}
 </h3>
 
-<p className="text-yellow-500 text-sm">
+<p className="text-pink-500 text-sm">
 {project.location}
 </p>
 
@@ -168,7 +166,6 @@ className="w-full h-[380px] object-cover group-hover:scale-110 transition durati
 
 
 {/* LIGHTBOX */}
-
 <AnimatePresence>
 
 {index!==null &&(
@@ -209,7 +206,7 @@ className="max-h-[75vh] mx-auto rounded-xl mb-6"
 {projects[index].title}
 </h3>
 
-<p className="text-yellow-500 mb-2">
+<p className="text-pink-500 mb-2">
 {projects[index].location}
 </p>
 
@@ -234,7 +231,6 @@ className="absolute right-6 text-white"
 
 
 {/* CTA */}
-
 <section
 className="relative py-32 text-center text-white bg-cover bg-center"
 style={{ backgroundImage: `url(${ctaBg})` }}
@@ -260,7 +256,7 @@ functionality and innovation.
 
 <Link to="/contact-form">
 
-<button className="bg-yellow-500 text-black px-8 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition">
+<button className="bg-pink-500 text-black px-8 py-3 rounded-lg font-semibold hover:bg-pink-400 transition shadow-lg shadow-pink-500/40">
 Start Your Project
 </button>
 
