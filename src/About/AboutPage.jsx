@@ -13,12 +13,16 @@ function AboutPage() {
         01
       </h1>
 
-      {/* Accent Line */}
-      <div className="absolute left-0 top-0 h-full w-[4px] bg-yellow-500"></div>
+      {/* 🔥 Pink Accent Line */}
+      <div className="absolute left-0 top-0 h-full w-[4px] bg-pink-500"></div>
+
+      {/* 🔥 Glow */}
+      <div className="absolute -top-20 left-0 w-80 h-80 bg-pink-500/10 blur-[120px] rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-400/10 blur-[120px] rounded-full"></div>
 
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
 
-        {/* IMAGE SIDE */}
+        {/* IMAGE */}
         <motion.div
           initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -30,7 +34,7 @@ function AboutPage() {
 
             <img
               src={img1}
-              alt="Architecture Design"
+              alt="Interior Design"
               className="w-[420px] md:w-[500px] h-[520px] object-cover hover:scale-110 transition duration-700"
             />
 
@@ -38,7 +42,7 @@ function AboutPage() {
         </motion.div>
 
 
-        {/* CONTENT SIDE */}
+        {/* CONTENT */}
         <motion.div
           initial={{ opacity: 0, x: 80 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -47,49 +51,52 @@ function AboutPage() {
           className="text-center lg:text-left"
         >
 
-          {/* Small Label */}
-          <p className="text-yellow-500 uppercase tracking-[5px] text-sm mb-6">
-            Our Story
+          {/* Label */}
+          <p className="text-pink-500 uppercase tracking-[5px] text-sm mb-6">
+            About Us
           </p>
 
           {/* Heading */}
           <h2 className="text-4xl md:text-6xl font-bold leading-tight">
-            Designing Spaces <br /> That Inspire Living
+            Crafting Spaces <br /> That Reflect You
           </h2>
 
           {/* Tagline */}
-          <p className="mt-6 text-xl font-semibold text-yellow-500">
-            Innovative architecture driven by creativity, functionality, and timeless design.
+          <p className="mt-6 text-xl font-semibold text-pink-500">
+            Creative, functional and personalized interior design solutions.
           </p>
 
           {/* Paragraph 1 */}
           <p className="mt-8 text-gray-300 leading-relaxed text-lg max-w-xl mx-auto lg:mx-0">
-            M.A. Architects & Associates is a leading architectural and design 
-            studio based in Moradabad with over 10 years of professional 
-            experience in delivering innovative and functional design solutions. 
-            Our services include architecture, master planning, urban design, 
-            landscape planning, and interior design, offering clients a complete 
-            range of services from concept development to project execution.
+            Pink Roof Interior is a creative and client-focused interior design firm dedicated to transforming spaces into elegant, functional, and personalized environments. Specializing in residential projects, we bring style and comfort together to craft homes that reflect our clients' lifestyles and aspirations.
           </p>
 
           {/* Paragraph 2 */}
           <p className="mt-5 text-gray-300 leading-relaxed text-lg max-w-xl mx-auto lg:mx-0">
-            At M.A. Architects & Associates, we believe that architecture is not 
-            just about constructing buildings — it is about creating meaningful 
-            spaces that enhance the way people live, work, and interact. Our 
-            approach blends modern aesthetics with practical functionality while 
-            maintaining close collaboration with clients and consultants to 
-            ensure every project reflects quality, innovation, and long-term value.
+            From modern apartments to luxurious villas, Pink Roof Interior ensures each design is thoughtfully curated with attention to detail, innovative solutions, and timeless appeal.
           </p>
 
+          {/* Designer Intro */}
+          <p className="mt-6 text-gray-300 leading-relaxed text-lg max-w-xl mx-auto lg:mx-0">
+            I, Rukhsar Fatima Rizvi, a certified Interior Designer with over 7 years of experience, specialize in creating innovative and functional spaces with a strong focus on sustainability and modern aesthetics.
+          </p>
 
-          {/* Bottom Info */}
+          {/* Experience */}
+          <p className="mt-5 text-gray-300 leading-relaxed text-lg max-w-xl mx-auto lg:mx-0">
+            I have worked on multiple residential, commercial, and hospitality projects including hotels, rooftop spaces, salons, apartments, and offices. My expertise includes space planning, 3D visualization, material selection, and on-site execution.
+          </p>
+
+          <p className="mt-5 text-gray-300 leading-relaxed text-lg max-w-xl mx-auto lg:mx-0">
+            I collaborate closely with clients, contractors, and teams to ensure each project meets expectations with precision, creativity, and high-quality results.
+          </p>
+
+          {/* Bottom */}
           <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-10 mt-12">
 
             {/* Experience */}
             <div>
-              <h3 className="text-5xl font-bold text-yellow-500">
-                10+
+              <h3 className="text-5xl font-bold text-pink-500">
+                7+
               </h3>
 
               <p className="text-gray-400">
@@ -97,11 +104,10 @@ function AboutPage() {
               </p>
             </div>
 
-
             {/* Hotline */}
             <div className="flex items-center gap-4">
 
-              <div className="bg-yellow-500 p-4 text-black rounded-full">
+              <div className="bg-pink-500 p-4 text-black rounded-full shadow-lg shadow-pink-500/40">
                 <Phone size={20} />
               </div>
 

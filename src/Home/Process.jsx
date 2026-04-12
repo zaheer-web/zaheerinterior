@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 
-
 const steps = [
   {
     title: "Consultation",
@@ -41,7 +40,11 @@ const card = {
 
 export default function ProcessHero6() {
   return (
-    <section className="py-10 bg-gradient-to-b from-black via-gray-900 to-black text-white">
+    <section className="relative py-10 bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden">
+
+      {/* 🔥 Pink Glow */}
+      <div className="absolute -top-20 left-0 w-80 h-80 bg-pink-500/10 blur-[120px] rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-400/10 blur-[120px] rounded-full"></div>
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -53,7 +56,7 @@ export default function ProcessHero6() {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl font-extrabold">
-            Our <span className="text-yellow-500">Design Process</span>
+            Our <span className="text-pink-500">Design Process</span>
           </h2>
 
           <p className="text-gray-400 mt-4 max-w-xl mx-auto">
@@ -75,14 +78,14 @@ export default function ProcessHero6() {
               key={index}
               variants={card}
               whileHover={{ y: -12, scale: 1.03 }}
-              className="relative p-10 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-xl group overflow-hidden text-center md:text-left"
+              className="group relative p-10 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-xl hover:shadow-pink-500/20 overflow-hidden text-center md:text-left"
             >
 
-              {/* Glow Hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+              {/* 🔥 Glow Hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
 
               {/* Step number */}
-              <div className="text-6xl font-extrabold text-white/10 mb-6">
+              <div className="text-6xl font-extrabold text-white/10 mb-6 group-hover:text-pink-500/20 transition">
                 0{index + 1}
               </div>
 
@@ -96,8 +99,8 @@ export default function ProcessHero6() {
                 {step.desc}
               </p>
 
-              {/* Bottom accent line */}
-              <div className="absolute bottom-0 left-0 h-1 w-0 bg-yellow-500 group-hover:w-full transition-all duration-500"></div>
+              {/* 🔥 Bottom line */}
+              <div className="absolute bottom-0 left-0 h-1 w-0 bg-pink-500 group-hover:w-full transition-all duration-500"></div>
 
             </motion.div>
           ))}

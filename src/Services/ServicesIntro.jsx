@@ -3,21 +3,21 @@ import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 
 const points = [
-  "Innovative architectural concepts tailored to each project.",
-  "Modern interior design balancing aesthetics and functionality.",
-  "Sustainable and site-responsive design solutions.",
-  "Efficient space planning for maximum comfort and usability.",
-  "High-quality execution with attention to every detail.",
-  "Creative designs that elevate lifestyle and productivity."
+  "Personalized interior design tailored to your lifestyle.",
+  "Modern and elegant spaces combining style and functionality.",
+  "Smart space planning for comfort and efficiency.",
+  "Creative solutions for homes, apartments, and luxury interiors.",
+  "Attention to detail with high-quality materials and finishes.",
+  "Designs that enhance comfort, beauty, and everyday living."
 ];
 
 const ServicesIntro = () => {
   return (
     <section className="relative py-15 bg-black text-white overflow-hidden">
 
-      {/* Glow Background */}
-      <div className="absolute -top-20 -left-20 w-80 h-80 bg-yellow-500/20 blur-[120px] rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-yellow-400/20 blur-[120px] rounded-full"></div>
+      {/* 🔥 Pink Glow */}
+      <div className="absolute -top-20 -left-20 w-80 h-80 bg-pink-500/20 blur-[120px] rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-400/20 blur-[120px] rounded-full"></div>
 
       <div className="relative max-w-6xl mx-auto px-6 text-center">
 
@@ -28,7 +28,7 @@ const ServicesIntro = () => {
           transition={{ duration: 0.7 }}
           className="text-4xl md:text-5xl font-extrabold tracking-wide"
         >
-          WHAT WE <span className="text-yellow-500">DO</span>
+          WHAT WE <span className="text-pink-500">DO</span>
         </motion.h2>
 
         {/* Description */}
@@ -38,10 +38,10 @@ const ServicesIntro = () => {
           transition={{ delay: 0.2, duration: 0.7 }}
           className="mt-6 text-gray-300 leading-relaxed max-w-3xl mx-auto"
         >
-          At M.A. Architects & Associates, we deliver thoughtful architecture,
-          innovative interiors, and visionary urban design solutions. Our
-          approach blends science, creativity, and functionality to create
-          spaces that inspire and elevate lifestyles.
+          At Pink Roof Interiors, we provide creative and client-focused interior 
+          design solutions that transform spaces into elegant, functional, and 
+          personalized environments. We combine creativity, comfort, and innovation 
+          to design spaces that truly reflect your lifestyle.
         </motion.p>
 
         {/* Points Grid */}
@@ -57,7 +57,7 @@ const ServicesIntro = () => {
               className="flex items-start gap-3"
             >
 
-              <div className="bg-yellow-500 text-black p-2 rounded-full mt-1">
+              <div className="bg-pink-500 text-black p-2 rounded-full mt-1 shadow-md shadow-pink-500/40">
                 <CheckCircle size={18}/>
               </div>
 

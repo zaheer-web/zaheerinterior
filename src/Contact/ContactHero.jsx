@@ -30,7 +30,6 @@ const ContactHero = () => {
       <section className="relative w-full h-[350px] sm:h-[420px] md:h-[480px] lg:h-[520px] overflow-hidden bg-black">
 
         {/* Slider Images */}
-
         {sliderImages.map((img, index) => (
 
           <motion.img
@@ -50,13 +49,14 @@ const ContactHero = () => {
 
         ))}
 
-        {/* Overlay */}
+        {/* 🔥 Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/90 via-black/60 to-pink-900/30 z-10" />
 
-        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/80 via-black/50 to-transparent z-10" />
+        {/* 🔥 Glow */}
+        <div className="absolute -top-20 left-0 w-72 h-72 bg-pink-500/10 blur-[120px] rounded-full"></div>
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-pink-400/10 blur-[120px] rounded-full"></div>
 
-
-        {/* Hero Content */}
-
+        {/* Content */}
         <div className="absolute inset-0 flex items-center justify-center md:justify-start px-6 md:px-24 lg:px-32 z-20">
 
           <motion.div
@@ -68,24 +68,22 @@ const ContactHero = () => {
           >
 
             {/* Heading */}
-
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
 
               Get In Touch
 
-              <span className="block text-yellow-500">
+              <span className="block text-pink-500">
                 Contact Us
               </span>
 
             </h1>
 
             {/* Breadcrumb */}
-
             <div className="mt-6 flex items-center gap-2 text-sm tracking-[0.3em] font-semibold">
 
               <span className="opacity-70">HOME</span>
 
-              <span className="text-red-500">—</span>
+              <span className="text-pink-500">—</span>
 
               <span>CONTACT</span>
 
@@ -95,9 +93,7 @@ const ContactHero = () => {
 
         </div>
 
-
-        {/* Slider Dots */}
-
+        {/* 🔥 Slider Dots */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-30">
 
           {sliderImages.map((_, index) => (
@@ -107,7 +103,7 @@ const ContactHero = () => {
               onClick={() => setCurrentIndex(index)}
               className={`h-2 transition-all duration-300 rounded-full ${
                 currentIndex === index
-                  ? "w-10 bg-yellow-500"
+                  ? "w-10 bg-pink-500 shadow-md shadow-pink-500/50"
                   : "w-2 bg-white/40"
               }`}
             />

@@ -5,22 +5,22 @@ import { FaLightbulb, FaDraftingCompass, FaCube, FaBuilding } from "react-icons/
 const steps = [
 {
 title: "Concept & Idea",
-desc: "Understanding client vision and developing innovative architectural concepts.",
+desc: "Understanding your lifestyle, preferences and space requirements to create a unique interior concept.",
 icon: <FaLightbulb />
 },
 {
 title: "Planning & Strategy",
-desc: "Detailed planning with functional layouts and aesthetic balance.",
+desc: "Smart space planning with functional layouts, materials and aesthetic balance.",
 icon: <FaDraftingCompass />
 },
 {
 title: "3D Visualization",
-desc: "Photorealistic visualization helping clients experience the design.",
+desc: "Realistic 3D previews that help you visualize your interiors before execution.",
 icon: <FaCube />
 },
 {
 title: "Execution",
-desc: "Turning ideas into reality with precision and design excellence.",
+desc: "Bringing designs to life with precision, quality materials and attention to detail.",
 icon: <FaBuilding />
 }
 ];
@@ -33,16 +33,16 @@ return (
 <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
 
 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-16 md:mb-28">
-Our <span className="text-yellow-400">Design Process</span>
+Our <span className="text-pink-500">Design Process</span>
 </h2>
 
-{/* Mobile Vertical Timeline */}
+{/* 🔥 Mobile Timeline */}
 <div className="absolute left-6 top-0 h-full w-[2px] bg-white/10 md:hidden">
 <motion.div
 initial={{ height: 0 }}
 whileInView={{ height: "100%" }}
 transition={{ duration: 2 }}
-className="w-full bg-yellow-400"
+className="w-full bg-pink-500"
 />
 </div>
 
@@ -52,52 +52,39 @@ className="w-full bg-yellow-400"
 
 {/* STEP 1 */}
 <div className="flex md:justify-end justify-start relative pl-14 md:pl-0">
-
-<div className="absolute left-5 top-6 w-3 h-3 bg-yellow-400 rounded-full md:hidden"></div>
-
+<div className="absolute left-5 top-6 w-3 h-3 bg-pink-500 rounded-full md:hidden"></div>
 <Card step={steps[0]} number="01"/>
-
 </div>
 
 {/* STEP 2 */}
 <div className="flex md:justify-start justify-start relative pl-14 md:pl-0">
-
-<div className="absolute left-5 top-6 w-3 h-3 bg-yellow-400 rounded-full md:hidden"></div>
-
+<div className="absolute left-5 top-6 w-3 h-3 bg-pink-500 rounded-full md:hidden"></div>
 <Card step={steps[1]} number="02"/>
-
 </div>
 
 {/* STEP 3 */}
 <div className="flex md:justify-end justify-start relative pl-14 md:pl-0">
-
-<div className="absolute left-5 top-6 w-3 h-3 bg-yellow-400 rounded-full md:hidden"></div>
-
+<div className="absolute left-5 top-6 w-3 h-3 bg-pink-500 rounded-full md:hidden"></div>
 <Card step={steps[2]} number="03"/>
-
 </div>
 
 {/* STEP 4 */}
 <div className="flex md:justify-start justify-start relative pl-14 md:pl-0">
-
-<div className="absolute left-5 top-6 w-3 h-3 bg-yellow-400 rounded-full md:hidden"></div>
-
+<div className="absolute left-5 top-6 w-3 h-3 bg-pink-500 rounded-full md:hidden"></div>
 <Card step={steps[3]} number="04"/>
-
 </div>
 
 
-{/* SVG CONNECTORS (Desktop Only) */}
+{/* 🔥 SVG CONNECTORS */}
 <svg
 className="absolute top-0 left-0 w-full h-full pointer-events-none hidden md:block"
 viewBox="0 0 1000 700"
 fill="none"
 >
 
-{/* 1 → 2 */}
 <motion.path
 d="M425 120 C420 120 420 120 580 120"
-stroke="#facc15"
+stroke="#ec4899"
 strokeWidth="3"
 strokeLinecap="round"
 initial={{ pathLength: 0 }}
@@ -105,10 +92,9 @@ whileInView={{ pathLength: 1 }}
 transition={{ duration: 1 }}
 />
 
-{/* 2 ↓ 3 */}
 <motion.path
 d="M700 300 C700 460 350 260 300 425"
-stroke="#facc15"
+stroke="#ec4899"
 strokeWidth="3"
 strokeLinecap="round"
 initial={{ pathLength: 0 }}
@@ -116,10 +102,9 @@ whileInView={{ pathLength: 1 }}
 transition={{ duration: 1.2, delay:0.5 }}
 />
 
-{/* 3 → 4 */}
 <motion.path
 d="M420 580 L580 580"
-stroke="#facc15"
+stroke="#ec4899"
 strokeWidth="3"
 strokeLinecap="round"
 initial={{ pathLength: 0 }}
@@ -146,14 +131,14 @@ initial={{opacity:0,y:50}}
 whileInView={{opacity:1,y:0}}
 transition={{duration:0.6}}
 viewport={{once:true}}
-className="w-full max-w-[260px] bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 sm:p-8 text-center shadow-xl hover:scale-105 transition"
+className="w-full max-w-[260px] bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 sm:p-8 text-center shadow-xl hover:scale-105 hover:shadow-pink-500/20 transition"
 >
 
-<div className="text-3xl sm:text-4xl text-yellow-400 mb-4 sm:mb-5 flex justify-center">
+<div className="text-3xl sm:text-4xl text-pink-500 mb-4 sm:mb-5 flex justify-center">
 {step.icon}
 </div>
 
-<div className="text-4xl sm:text-5xl font-bold text-yellow-500 mb-2 sm:mb-3">
+<div className="text-4xl sm:text-5xl font-bold text-pink-500 mb-2 sm:mb-3">
 {number}
 </div>
 

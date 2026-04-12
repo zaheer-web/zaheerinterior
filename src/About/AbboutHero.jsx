@@ -13,13 +13,11 @@ const AbboutHero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % sliderImages.length);
     }, 5000);
 
     return () => clearInterval(timer);
-
   }, []);
 
   return (
@@ -29,9 +27,7 @@ const AbboutHero = () => {
       <section className="relative w-full h-[85vh] sm:h-[90vh] md:h-[95vh] overflow-hidden bg-black">
 
         {/* Slider Images */}
-
         {sliderImages.map((img, index) => (
-
           <motion.img
             key={index}
             src={img}
@@ -47,15 +43,12 @@ const AbboutHero = () => {
             }}
             className="absolute inset-0 w-full h-full object-cover"
           />
-
         ))}
 
-        {/* Overlay */}
-
-        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/80 via-black/50 to-transparent z-10" />
+        {/* 🔥 Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/90 via-black/60 to-pink-900/30 z-10" />
 
         {/* Content */}
-
         <div className="absolute inset-0 flex items-center justify-center md:justify-start px-6 md:px-24 lg:px-32 z-20">
 
           <motion.div
@@ -67,30 +60,26 @@ const AbboutHero = () => {
           >
 
             {/* Small Heading */}
-
-            <span className="text-yellow-400 font-semibold tracking-[3px] uppercase text-xs md:text-sm block mb-3">
-              Creative Architecture
+            <span className="text-pink-400 font-semibold tracking-[3px] uppercase text-xs md:text-sm block mb-3">
+              Pink Roof Interiors
             </span>
 
             {/* Main Heading */}
-
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
 
-              Architects <br />
+              Designing <br />
 
-              <span className="text-yellow-400">
-                & Associates
+              <span className="text-pink-500">
+                Elegant Spaces
               </span>
 
             </h1>
 
             {/* Paragraph */}
-
             <p className="mt-6 text-lg text-gray-300 max-w-lg mx-auto md:mx-0">
 
-              We design innovative, functional, and timeless spaces that transform
-              ideas into architectural masterpieces. Our team blends creativity,
-              technology, and precision to deliver exceptional design experiences.
+              At Pink Roof Interiors, we create stylish, functional and personalized spaces that reflect your lifestyle. 
+              From modern homes to luxurious interiors, we blend creativity with comfort to deliver timeless designs.
 
             </p>
 
@@ -98,22 +87,19 @@ const AbboutHero = () => {
 
         </div>
 
-        {/* Slider Dots */}
-
+        {/* 🔥 Slider Dots */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-30">
 
           {sliderImages.map((_, index) => (
-
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`h-2 transition-all duration-300 rounded-full ${
                 currentIndex === index
-                  ? "w-10 bg-yellow-500"
+                  ? "w-10 bg-pink-500 shadow-md shadow-pink-500/50"
                   : "w-2 bg-white/40"
               }`}
             />
-
           ))}
 
         </div>

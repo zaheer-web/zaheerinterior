@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Phone, Plus } from "lucide-react";
+import { Phone } from "lucide-react";
 
 import img1 from "../img/hero2.jpg";
 import img2 from "../img/hero3.jpg";
@@ -8,14 +8,14 @@ import img3 from "../img/hero4.jpg";
 
 function About() {
   return (
-    <section className="relative py-15 bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden">
+    <section className="relative py-16 bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden">
 
       {/* Grid background */}
       <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(#fff_1px,transparent_1px),linear-gradient(to_right,#fff_1px,transparent_1px)] bg-[size:80px_80px]" />
 
-      {/* Glow */}
-      <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-yellow-500/20 blur-[160px] rounded-full" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-yellow-400/20 blur-[160px] rounded-full" />
+      {/* 🔥 Pink Glow */}
+      <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-pink-500/20 blur-[160px] rounded-full" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-pink-400/20 blur-[160px] rounded-full" />
 
       {/* Background number */}
       <h1 className="absolute text-[200px] md:text-[300px] font-extrabold text-white/5 left-6 top-6 -z-10">
@@ -34,40 +34,32 @@ function About() {
         >
 
           <h2 className="text-4xl md:text-6xl font-extrabold leading-tight">
-            <span className="text-yellow-500">COMPANY</span>
+            <span className="text-pink-500">ABOUT <span className="text-white">US</span> </span>
             <br />
-            <span>OVERVIEW</span>
+           
           </h2>
 
-          <p className="mt-6 text-xl font-semibold text-yellow-500">
-            Architecture should speak of its time and place.
+          <p className="mt-6 text-xl font-semibold text-pink-500">
+            Designing spaces that reflect your lifestyle.
           </p>
 
-          {/* Updated Content */}
+          {/* ✅ Updated Content */}
 
           <p className="mt-6 text-gray-300 leading-relaxed text-lg max-w-xl mx-auto lg:mx-0">
-            M.A. Architects & Associates is a Moradabad-based architectural firm 
-            with over 10 years of experience in architecture, master planning, 
-            urbanism, landscape and interior design. We provide complete design 
-            solutions from concept to execution.
+            Pink Roof Interior is a creative and client-focused interior design firm dedicated to transforming spaces into elegant, functional, and personalized environments. Specializing in residential projects, we bring style and comfort together to craft homes that reflect our clients' lifestyles and aspirations.
           </p>
 
           <p className="mt-5 text-gray-300 leading-relaxed text-lg max-w-xl mx-auto lg:mx-0">
-            Our approach combines functionality with aesthetics, ensuring every 
-            project is thoughtfully designed and carefully executed. We work 
-            closely with clients and consultants to deliver spaces that exceed expectations.
+            From modern apartments to luxurious villas, Pink Roof Interior ensures each design is thoughtfully curated with attention to detail, innovative solutions, and timeless appeal.
           </p>
 
-
-          {/* Buttons */}
+          {/* Hotline */}
 
           <div className="flex flex-wrap justify-center lg:justify-start items-center gap-8 mt-12">
 
-           
-
             <div className="flex items-center gap-4">
 
-              <div className="bg-yellow-500 p-4 text-black rounded-xl shadow-lg">
+              <div className="bg-pink-500 p-4 text-black rounded-xl shadow-lg shadow-pink-500/40">
                 <Phone size={20}/>
               </div>
 
@@ -77,7 +69,7 @@ function About() {
                 </p>
 
                 <p className="text-gray-400">
-                  +91-9411096122 
+                  +91-9411096122
                 </p>
               </div>
 

@@ -39,14 +39,14 @@ export default function OurClient() {
   return (
     <section className="relative py-20 bg-black text-white overflow-hidden">
 
-      {/* Glow */}
-      <div className="absolute -top-20 -left-20 w-96 h-96 bg-yellow-500/20 blur-[140px] rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-400/20 blur-[140px] rounded-full"></div>
+      {/* 🔥 Pink Glow */}
+      <div className="absolute -top-20 -left-20 w-96 h-96 bg-pink-500/20 blur-[140px] rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-400/20 blur-[140px] rounded-full"></div>
 
       <div className="max-w-7xl mx-auto px-6 text-center">
 
         <h2 className="text-4xl md:text-5xl font-extrabold mb-10">
-          Our <span className="text-yellow-500">Clients</span>
+          Our <span className="text-pink-500">Clients</span>
         </h2>
 
         <Swiper
@@ -75,33 +75,41 @@ export default function OurClient() {
                   
                   ${
                     isActive
-                      ? "scale-105 bg-white/10 shadow-2xl border-yellow-500"
+                      ? "scale-105 bg-white/10 shadow-2xl border-pink-500"
                       : "scale-95 bg-white/5 shadow-lg"
                   }`}
                 >
-                  <Quote className="text-yellow-500 mb-1" size={36} />
 
+                  {/* Quote */}
+                  <Quote className="text-pink-500 mb-1" size={36} />
+
+                  {/* Text */}
                   <p className="text-gray-300 italic text-sm leading-relaxed">
                     {item.text}
                   </p>
 
-                  <div className="flex gap-1 text-yellow-400 mt-4">
+                  {/* Stars */}
+                  <div className="flex gap-1 text-pink-400 mt-4">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} size={18} fill="currentColor" />
                     ))}
                   </div>
 
-                  <div className="w-14 h-14 rounded-full bg-yellow-500 text-black flex items-center justify-center text-lg font-bold mt-6">
+                  {/* Avatar */}
+                  <div className="w-14 h-14 rounded-full bg-pink-500 text-black flex items-center justify-center text-lg font-bold mt-6 shadow-md shadow-pink-500/40">
                     {item.name.charAt(0)}
                   </div>
 
+                  {/* Name */}
                   <h4 className="mt-3 font-semibold text-white">
                     {item.name}
                   </h4>
 
-                  <p className="text-sm text-gray-400">
+                  {/* Role */}
+                  <p className="text-sm text-gry-400">
                     {item.role}
                   </p>
+
                 </div>
               )}
             </SwiperSlide>

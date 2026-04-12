@@ -7,11 +7,11 @@ import axios from "axios";
 import { MapPin, Phone, Mail } from "lucide-react";
 
 const Option = [
-"I am looking invest",
-"I am looking for residential space",
-"I am looking for office space",
-"I am looking for house space",
-"I am looking for work"
+"Interior Design Consultation",
+"Residential Interior",
+"Office / Commercial Interior",
+"Renovation / Remodeling",
+"Other Inquiry"
 ];
 
 const ContactForm = () => {
@@ -71,8 +71,9 @@ try{
 
 setLoading(true)
 
+// 👉 change this after backend setup
 await axios.post(
-"http://localhost:5000/api/ma-architect/contact",
+"http://localhost:5000/api/contact",
 formData
 )
 
@@ -100,13 +101,15 @@ return (
 
 <section className="relative py-28 bg-black text-white overflow-hidden">
 
-<div className="absolute -top-20 -left-20 w-96 h-96 bg-yellow-500/20 blur-[140px] rounded-full"></div>
-<div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-400/20 blur-[140px] rounded-full"></div>
+{/* 🔥 Pink Glow */}
+<div className="absolute -top-20 -left-20 w-96 h-96 bg-pink-500/20 blur-[140px] rounded-full"></div>
+<div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-400/20 blur-[140px] rounded-full"></div>
 
 <div className="relative max-w-7xl mx-auto px-6">
 
 <div className="grid lg:grid-cols-2 gap-14 items-center">
 
+{/* LEFT */}
 <motion.div
 initial={{opacity:0,x:-60}}
 whileInView={{opacity:1,x:0}}
@@ -114,40 +117,40 @@ transition={{duration:0.7}}
 >
 
 <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
-Let's <span className="text-yellow-500">Talk</span>
+Let's <span className="text-pink-500">Talk</span>
 </h2>
 
 <p className="text-gray-400 mb-10 leading-relaxed max-w-lg">
-Have a project in mind? We'd love to hear from you.
-Send us a message and our team will get back to you shortly.
+Have a project in mind? Let’s create something beautiful together. 
+Reach out to Pink Roof Interiors and we’ll help bring your vision to life.
 </p>
 
 <div className="space-y-6">
 
 <div className="flex items-center gap-4">
-<div className="p-3 rounded-lg bg-white/5 border border-white/10 text-yellow-500">
+<div className="p-3 rounded-lg bg-white/5 border border-white/10 text-pink-500">
 <MapPin size={20}/>
 </div>
 <p className="text-gray-300">
-25,Avas Vikas, Civil Lines, Moradabad-244001
+Your City, India
 </p>
 </div>
 
 <div className="flex items-center gap-4">
-<div className="p-3 rounded-lg bg-white/5 border border-white/10 text-yellow-500">
+<div className="p-3 rounded-lg bg-white/5 border border-white/10 text-pink-500">
 <Phone size={20}/>
 </div>
 <p className="text-gray-300">
-+91-9411096122
++91-XXXXXXXXXX
 </p>
 </div>
 
 <div className="flex items-center gap-4">
-<div className="p-3 rounded-lg bg-white/5 border border-white/10 text-yellow-500">
+<div className="p-3 rounded-lg bg-white/5 border border-white/10 text-pink-500">
 <Mail size={20}/>
 </div>
 <p className="text-gray-300">
-contact@yourcompany.com
+pinkroofinteriors@gmail.com
 </p>
 </div>
 
@@ -155,6 +158,7 @@ contact@yourcompany.com
 
 </motion.div>
 
+{/* FORM */}
 <motion.form
 onSubmit={handleSubmit}
 initial={{opacity:0,x:60}}
@@ -170,7 +174,7 @@ name="firstName"
 value={formData.firstName}
 onChange={handleChange}
 placeholder="First Name"
-className="bg-white/5 border border-white/10 p-4 rounded-lg w-full text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500"
+className="bg-white/5 border border-white/10 p-4 rounded-lg w-full text-white placeholder-gray-400 focus:outline-none focus:border-pink-500"
 />
 
 <input
@@ -178,11 +182,10 @@ name="lastName"
 value={formData.lastName}
 onChange={handleChange}
 placeholder="Last Name"
-className="bg-white/5 border border-white/10 p-4 rounded-lg w-full text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500"
+className="bg-white/5 border border-white/10 p-4 rounded-lg w-full text-white placeholder-gray-400 focus:outline-none focus:border-pink-500"
 />
 
 <div>
-
 <PhoneInput
 country={"in"}
 value={formData.phone}
@@ -201,7 +204,6 @@ border:"1px solid rgba(255,255,255,0.1)"
 }}
 dropdownStyle={{color:"black"}}
 />
-
 </div>
 
 <input
@@ -209,14 +211,14 @@ name="email"
 value={formData.email}
 onChange={handleChange}
 placeholder="Email Address"
-className="bg-white/5 border border-white/10 p-4 rounded-lg w-full text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500"
+className="bg-white/5 border border-white/10 p-4 rounded-lg w-full text-white placeholder-gray-400 focus:outline-none focus:border-pink-500"
 />
 
 <select
 name="subject"
 value={formData.subject}
 onChange={handleChange}
-className="bg-white/5 border border-white/10 p-4 rounded-lg w-full md:col-span-2 text-white focus:outline-none focus:border-yellow-500"
+className="bg-white/5 border border-white/10 p-4 rounded-lg w-full md:col-span-2 text-white focus:outline-none focus:border-pink-500"
 >
 
 <option value="" className="text-black">Select Option</option>
@@ -235,19 +237,17 @@ className="bg-white/5 border border-white/10 p-4 rounded-lg w-full md:col-span-2
 name="message"
 value={formData.message}
 onChange={handleChange}
-placeholder="What's on your mind?"
+placeholder="Tell us about your project..."
 rows="5"
-className="bg-white/5 border border-white/10 p-4 rounded-lg w-full text-white placeholder-gray-400 focus:outline-none focus:border-yellow-500"
+className="bg-white/5 border border-white/10 p-4 rounded-lg w-full text-white placeholder-gray-400 focus:outline-none focus:border-pink-500"
 />
 
 <button
 type="submit"
 disabled={loading}
-className="bg-yellow-500 hover:bg-yellow-600 text-black py-4 w-full rounded-lg font-semibold transition"
+className="bg-pink-500 hover:bg-pink-400 text-black py-4 w-full rounded-lg font-semibold transition shadow-lg shadow-pink-500/40"
 >
-
 {loading ? "Sending..." : "Send Message"}
-
 </button>
 
 </motion.form>
@@ -259,7 +259,6 @@ className="bg-yellow-500 hover:bg-yellow-600 text-black py-4 w-full rounded-lg f
 </section>
 
 )
-
 }
 
 export default ContactForm

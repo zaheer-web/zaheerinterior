@@ -17,9 +17,9 @@ function WhyChoose() {
   return (
     <section className="relative py-10 bg-black text-white overflow-hidden">
 
-      {/* Glow Background */}
-      <div className="absolute -top-20 -left-20 w-80 h-80 bg-yellow-500/20 blur-[120px] rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-yellow-400/20 blur-[120px] rounded-full"></div>
+      {/* 🔥 Pink Glow */}
+      <div className="absolute -top-20 -left-20 w-80 h-80 bg-pink-500/20 blur-[120px] rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-400/20 blur-[120px] rounded-full"></div>
 
       <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
 
@@ -32,7 +32,7 @@ function WhyChoose() {
         >
 
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-wide">
-            WHY <span className="text-yellow-500">CHOOSE US</span>
+            WHY <span className="text-pink-500">CHOOSE US</span>
           </h2>
 
           <p className="mt-6 text-gray-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
@@ -50,7 +50,7 @@ function WhyChoose() {
                 className="flex items-start gap-3 justify-center lg:justify-start"
               >
 
-                <div className="bg-yellow-500 text-black p-2 rounded-full mt-1">
+                <div className="bg-pink-500 text-black p-2 rounded-full mt-1 shadow-md shadow-pink-500/40">
                   <CheckCircle size={18}/>
                 </div>
 
@@ -98,12 +98,12 @@ function WhyChoose() {
             />
           </motion.div>
 
-          {/* STATS BOX */}
+          {/* 🔥 STATS BOX */}
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="bg-gradient-to-br from-yellow-500 to-yellow-400 text-black flex flex-col justify-center items-center text-center p-10 rounded-2xl shadow-xl"
+            className="bg-gradient-to-br from-pink-500 to-pink-400 text-black flex flex-col justify-center items-center text-center p-10 rounded-2xl shadow-xl shadow-pink-500/40"
           >
 
             <h2 className="text-5xl font-extrabold">

@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "../img/logo.png";
 
 export default function Footer() {
 
@@ -35,7 +36,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://www.instagram.com/m_a_architects_n_assoc?igsh=MWgwamF1YTc3djZwcw=="
+              href="https://www.instagram.com/m_a_architects_n_assoc"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-pink-500 text-white p-3 rounded-full shadow-lg hover:scale-110 transition"
@@ -44,7 +45,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://www.facebook.com/profile.php?id=100066476327162&sk=followers"
+              href="https://www.facebook.com/profile.php"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-500 text-white p-3 rounded-full shadow-lg hover:scale-110 transition"
@@ -56,7 +57,7 @@ export default function Footer() {
 
         <button
           onClick={()=>setOpen(!open)}
-          className="bg-yellow-500 text-black p-4 rounded-full shadow-xl hover:scale-110 transition"
+          className="bg-pink-500 text-black p-4 rounded-full shadow-xl hover:scale-110 transition"
         >
           <Plus size={22}/>
         </button>
@@ -66,11 +67,11 @@ export default function Footer() {
 
       {/* FOOTER */}
 
-      <footer className="relative bg-[#0b0b0b] text-gray-400 pt-10 pb-10 overflow-hidden">
+      <footer className="relative bg-black text-gray-400 pt-12 pb-10 overflow-hidden">
 
-        {/* Glow Background */}
-        <div className="absolute -top-24 left-0 w-96 h-96 bg-yellow-500/10 blur-[140px] rounded-full"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-400/10 blur-[140px] rounded-full"></div>
+        {/* Pink Glow */}
+        <div className="absolute -top-24 left-0 w-96 h-96 bg-pink-500/10 blur-[140px] rounded-full"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-400/10 blur-[140px] rounded-full"></div>
 
         <div className="relative max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-12 text-center md:text-left">
 
@@ -82,43 +83,44 @@ export default function Footer() {
             transition={{ duration:0.6 }}
           >
 
-            <h2 className="text-2xl font-bold text-white mb-4">
-              Interior <span className="text-yellow-500">Studio</span>
-            </h2>
+            {/* Logo + Name */}
+            <div className="flex items-center justify-center md:justify-start gap-3 mb-4">
 
-            <p className="text-gray-400 leading-relaxed max-w-sm mx-auto md:mx-0">
+              <img
+                src={logo}
+                alt="logo"
+                className="h-12 w-auto object-contain"
+              />
+
+              <div>
+                <h2 className="text-xl font-bold text-white">
+                  Pink Roof
+                </h2>
+                <span className="text-pink-500 text-sm font-semibold">
+                  Interiors
+                </span>
+              </div>
+
+            </div>
+
+            <p className="leading-relaxed max-w-sm mx-auto md:mx-0">
               We design elegant and functional interior spaces for homes and
-              businesses. Our goal is to transform ideas into timeless designs.
+              businesses. Transforming ideas into luxury living experiences.
             </p>
 
             {/* Social Icons */}
 
             <div className="flex justify-center md:justify-start gap-4 mt-6">
 
-              <a
-                href="https://www.facebook.com/profile.php?id=100066476327162&sk=followers"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white/10 p-3 rounded-lg hover:bg-yellow-500 hover:text-black transition"
-              >
+              <a className="bg-white/10 p-3 rounded-lg hover:bg-pink-500 hover:text-black transition">
                 <Facebook size={18}/>
               </a>
 
-              <a
-                href="https://www.instagram.com/m_a_architects_n_assoc?igsh=MWgwamF1YTc3djZwcw=="
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white/10 p-3 rounded-lg hover:bg-yellow-500 hover:text-black transition"
-              >
+              <a className="bg-white/10 p-3 rounded-lg hover:bg-pink-500 hover:text-black transition">
                 <Instagram size={18}/>
               </a>
 
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white/10 p-3 rounded-lg hover:bg-yellow-500 hover:text-black transition"
-              >
+              <a className="bg-white/10 p-3 rounded-lg hover:bg-pink-500 hover:text-black transition">
                 <Linkedin size={18}/>
               </a>
 
@@ -141,35 +143,11 @@ export default function Footer() {
 
             <ul className="space-y-3">
 
-              <li>
-                <Link to="/" className="hover:text-yellow-500 transition">
-                  Home
-                </Link>
-              </li>
-
-              <li>
-                <Link to="/about" className="hover:text-yellow-500 transition">
-                  About
-                </Link>
-              </li>
-
-              <li>
-                <Link to="/services" className="hover:text-yellow-500 transition">
-                  Services
-                </Link>
-              </li>
-
-              <li>
-                <Link to="/gallery" className="hover:text-yellow-500 transition">
-                  Gallery
-                </Link>
-              </li>
-
-              <li>
-                <Link to="/contact" className="hover:text-yellow-500 transition">
-                  Contact
-                </Link>
-              </li>
+              <li><Link to="/" className="hover:text-pink-500">Home</Link></li>
+              <li><Link to="/about" className="hover:text-pink-500">About</Link></li>
+              <li><Link to="/services" className="hover:text-pink-500">Services</Link></li>
+              <li><Link to="/gallery" className="hover:text-pink-500">Gallery</Link></li>
+              <li><Link to="/contact" className="hover:text-pink-500">Contact</Link></li>
 
             </ul>
 
@@ -190,25 +168,11 @@ export default function Footer() {
 
             <ul className="space-y-3">
 
-              <li className="hover:text-yellow-500 transition">
-                Living Room Design
-              </li>
-
-              <li className="hover:text-yellow-500 transition">
-                Bedroom Interior
-              </li>
-
-              <li className="hover:text-yellow-500 transition">
-                Modular Kitchen
-              </li>
-
-              <li className="hover:text-yellow-500 transition">
-                Office Interior
-              </li>
-
-              <li className="hover:text-yellow-500 transition">
-                Space Planning
-              </li>
+              <li className="hover:text-pink-500">Living Room Design</li>
+              <li className="hover:text-pink-500">Bedroom Interior</li>
+              <li className="hover:text-pink-500">Modular Kitchen</li>
+              <li className="hover:text-pink-500">Office Interior</li>
+              <li className="hover:text-pink-500">Space Planning</li>
 
             </ul>
 
@@ -229,35 +193,19 @@ export default function Footer() {
 
             <div className="space-y-4">
 
-              <a
-                href="tel:+919411096122"
-                className="flex items-center justify-center md:justify-start gap-3 hover:text-yellow-500 transition"
-              >
+              <a href="tel:+919411096122" className="flex gap-3 hover:text-pink-500">
                 <Phone size={18}/>
                 <span>+91-9411096122</span>
               </a>
 
-              <a
-  onClick={() =>
-    (window.location.href =
-      "mailto:mohdaslam700@gmail.com?subject=Interior%20Design%20Inquiry&body=Hello%2C%20I%20want%20to%20know%20about%20your%20interior%20design%20services.")
-  }
-  className="flex items-center justify-center md:justify-start gap-3 hover:text-yellow-500 transition cursor-pointer"
->
-  <Mail size={18} />
-  <span>mohdaslam700@gmail.com</span>
-</a>
+              <a className="flex gap-3 hover:text-pink-500 cursor-pointer">
+                <Mail size={18}/>
+                <span>mohdaslam700@gmail.com</span>
+              </a>
 
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=25+Avas+Vikas+Civil+Lines+Moradabad+244001"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center md:justify-start gap-3 hover:text-yellow-500 transition"
-              >
+              <a className="flex gap-3 hover:text-pink-500">
                 <MapPin size={18}/>
-                <span>
-                  25, Avas Vikas, Civil Lines, Moradabad-244001
-                </span>
+                <span>Moradabad, India</span>
               </a>
 
             </div>
@@ -267,12 +215,12 @@ export default function Footer() {
         </div>
 
 
-        {/* Bottom Footer */}
+        {/* Bottom */}
 
-        <div className="relative border-t border-white/10 mt-16 pt-6 text-center text-gray-500">
+        <div className="border-t border-white/10 mt-16 pt-6 text-center text-gray-500">
 
           <p>
-            © {new Date().getFullYear()} Interior Studio. All Rights Reserved.
+            © {new Date().getFullYear()} Pink Roof Interiors. All Rights Reserved.
           </p>
 
         </div>

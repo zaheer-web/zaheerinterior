@@ -6,14 +6,19 @@ const ParallaxSection = () => {
   return (
 
     <section
-      className="relative h-[500px] flex items-center justify-center text-center text-white bg-fixed bg-center bg-cover"
+      className="relative h-[500px] flex items-center justify-center text-center text-white bg-fixed bg-center bg-cover overflow-hidden"
       style={{
         backgroundImage:
         "url(https://images.unsplash.com/photo-1616486338812-3dadae4b4ace)"
       }}
     >
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90"></div>
+      {/* 🔥 Overlay (black + pink) */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-pink-900/40"></div>
+
+      {/* 🔥 Glow */}
+      <div className="absolute -top-20 left-0 w-80 h-80 bg-pink-500/10 blur-[120px] rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-400/10 blur-[120px] rounded-full"></div>
 
       <motion.div
         initial={{ opacity:0, y:40 }}
@@ -22,18 +27,22 @@ const ParallaxSection = () => {
         className="relative z-10 max-w-2xl px-6"
       >
 
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">
-          Luxury Interior Design
+        {/* Heading */}
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          Luxury <span className="text-pink-500">Interior Design</span>
         </h2>
 
+        {/* Text */}
         <p className="text-gray-300 mb-8">
           We design elegant interiors that combine beauty, comfort and functionality.
         </p>
-        <Link to="/contact-form">
 
-        <button className="bg-yellow-500 text-black px-8 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition">
-          Start Your Project
-        </button>
+        {/* Button */}
+        <Link to="/contact-form">
+          <button className="bg-pink-500 text-black px-8 py-3 rounded-lg font-semibold 
+          hover:bg-pink-400 transition shadow-lg shadow-pink-500/40 hover:scale-105">
+            Start Your Project
+          </button>
         </Link>
 
       </motion.div>

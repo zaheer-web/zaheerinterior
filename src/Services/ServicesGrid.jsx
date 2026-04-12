@@ -8,28 +8,28 @@ const services = [
 title: "Interior Design",
 icon: <FaCouch />,
 image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6",
-desc: "Interior design is not just about decoration; it's about creating a cohesive and functional space. Our philosophy is centered around using interior design as a tool to enhance the aesthetics and functionality of any space, regardless of its size. Whether it's small, compact area or a large, expansive space, we aim to make every interior lively and comfortable."
+desc: "Interior design is more than decoration — it's about creating a harmonious and functional living space. We design interiors that reflect your personality while ensuring comfort, elegance and smart use of space."
 },
 
 {
 title: "3D Visualization",
 icon: <Md3dRotation />,
 image: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45",
-desc: "3D visualization is crucial for understanding a project comprehensively. We believe it offers unique satisfaction to both clients and our team. With skilled 3D visualizers dedicated to delivering the best results, we ensure that our clients can visualize their projects with clarity and confidence."
+desc: "Our 3D visualization services help you see your dream space before execution. We provide realistic previews so you can confidently make design decisions with clarity and precision."
 },
 
 {
 title: "Landscape Design",
 icon: <FaTree />,
 image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
-desc: "Landscape design is the soul of our built environment. We believe that space is incomplete without thoughtful landscaping. It's the element that breathes life into architecture, making it vibrant and inviting. Our team is dedicated to creating landscapes that enhance the beauty and functionality of every project, ensuring that each building is truly alive."
+desc: "We design outdoor spaces that complement your interiors and architecture. Our landscape solutions create refreshing, beautiful and functional environments for relaxation and lifestyle enhancement."
 },
 
 {
-title: "Urbanism",
+title: "Luxury Interiors",
 icon: <FaCity />,
 image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab",
-desc: "Urbanism is more than just city planning; it's about shaping communities. Our team specializes in Urban Design, Planning, and Regeneration, recognizing the unique skills these projects demand. We believe in the transformative power of Urbanism to benefit communities at large, driving our dedication to excellence in this field."
+desc: "We specialize in creating luxurious interiors that combine premium materials, modern aesthetics and thoughtful detailing to deliver spaces that feel sophisticated, stylish and timeless."
 }
 
 ]
@@ -40,9 +40,9 @@ return (
 
 <section className="relative py-15 bg-[#0c0c0c] text-white overflow-hidden">
 
-{/* Background Blur Lights */}
-<div className="absolute top-0 left-0 w-96 h-96 bg-yellow-500 opacity-20 blur-[140px]" />
-<div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 opacity-20 blur-[140px]" />
+{/* 🔥 Pink Glow */}
+<div className="absolute top-0 left-0 w-96 h-96 bg-pink-500 opacity-20 blur-[140px]" />
+<div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-400 opacity-20 blur-[140px]" />
 
 <div className="max-w-7xl mx-auto px-6 space-y-32 relative z-10">
 
@@ -64,7 +64,7 @@ className="grid md:grid-cols-2 gap-16 items-center"
 {/* IMAGE */}
 
 <motion.div
-whileHover={{scale:1.06, rotateY:6}}
+whileHover={{scale:1.06}}
 transition={{duration:0.6}}
 className={`${isReverse ? "md:order-2" : ""}`}
 >
@@ -72,7 +72,7 @@ className={`${isReverse ? "md:order-2" : ""}`}
 <img
 src={service.image}
 alt=""
-className="rounded-2xl shadow-2xl"
+className="rounded-2xl shadow-2xl shadow-pink-500/10"
 />
 
 </motion.div>
@@ -93,7 +93,7 @@ className={`${isReverse ? "md:order-1" : ""} text-center md:text-left`}
 initial={{scale:0}}
 whileInView={{scale:1}}
 transition={{duration:0.6}}
-className="text-4xl text-yellow-400 mb-4 flex justify-center md:justify-start"
+className="text-4xl text-pink-500 mb-4 flex justify-center md:justify-start"
 >
 
 {service.icon}

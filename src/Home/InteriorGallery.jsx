@@ -25,9 +25,15 @@ const InteriorGallery = () => {
 
   return (
 
-    <section className="py-10 bg-black text-white">
+    <section className="relative py-10 bg-black text-white overflow-hidden">
+
+      {/* 🔥 Pink Glow */}
+      <div className="absolute -top-20 left-0 w-80 h-80 bg-pink-500/10 blur-[120px] rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-400/10 blur-[120px] rounded-full"></div>
 
       <div className="max-w-7xl mx-auto px-6">
+
+        {/* Heading */}
 
         <motion.h2
           initial={{ opacity:0, y:40 }}
@@ -35,7 +41,7 @@ const InteriorGallery = () => {
           transition={{ duration:0.7 }}
           className="text-4xl font-bold text-center mb-16"
         >
-          Interior Gallery
+          Interior <span className="text-pink-500">Gallery</span>
         </motion.h2>
 
         {/* GRID */}
@@ -47,15 +53,18 @@ const InteriorGallery = () => {
             <motion.div
               key={i}
               whileHover={{ scale:1.05 }}
-              className="overflow-hidden rounded-xl shadow-xl cursor-pointer"
+              className="relative overflow-hidden rounded-xl shadow-xl cursor-pointer group"
               onClick={()=>setIndex(i)}
             >
 
               <img
                 src={img}
                 alt=""
-                className="w-full object-cover hover:scale-110 transition duration-700"
+                className="w-full object-cover group-hover:scale-110 transition duration-700"
               />
+
+              {/* 🔥 Hover Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-pink-500/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
 
             </motion.div>
 
@@ -82,7 +91,7 @@ const InteriorGallery = () => {
 
           <button
             onClick={()=>setIndex(null)}
-            className="absolute top-8 right-8 text-white"
+            className="absolute top-8 right-8 text-white hover:text-pink-500 transition"
           >
             <X size={32}/>
           </button>
@@ -91,7 +100,7 @@ const InteriorGallery = () => {
 
           <button
             onClick={prev}
-            className="absolute left-6 text-white"
+            className="absolute left-6 text-white hover:text-pink-500 transition"
           >
             <ChevronLeft size={40}/>
           </button>
@@ -104,14 +113,14 @@ const InteriorGallery = () => {
             initial={{ scale:0.9, opacity:0 }}
             animate={{ scale:1, opacity:1 }}
             transition={{ duration:0.4 }}
-            className="max-h-[80vh] rounded-xl shadow-2xl"
+            className="max-h-[80vh] rounded-xl shadow-2xl shadow-pink-500/20"
           />
 
           {/* RIGHT */}
 
           <button
             onClick={next}
-            className="absolute right-6 text-white"
+            className="absolute right-6 text-white hover:text-pink-500 transition"
           >
             <ChevronRight size={40}/>
           </button>

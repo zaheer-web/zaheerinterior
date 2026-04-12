@@ -27,10 +27,9 @@ const CTASection = () => {
 
     <section className="relative py-10 bg-black text-white overflow-hidden">
 
-      {/* Glow Background */}
-
-      <div className="absolute -top-20 -left-20 w-96 h-96 bg-yellow-500/20 blur-[140px] rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-400/20 blur-[140px] rounded-full"></div>
+      {/* 🔥 Pink Glow */}
+      <div className="absolute -top-20 -left-20 w-96 h-96 bg-pink-500/20 blur-[140px] rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-400/20 blur-[140px] rounded-full"></div>
 
       <motion.div
         variants={container}
@@ -41,48 +40,44 @@ const CTASection = () => {
       >
 
         {/* Glass Card */}
-
         <motion.div
           variants={item}
           whileHover={{ scale: 1.02 }}
-          className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-14 shadow-2xl"
+          className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-14 shadow-2xl hover:shadow-pink-500/20 transition"
         >
 
           {/* Heading */}
-
           <motion.h2
             variants={item}
             className="text-4xl md:text-5xl font-extrabold mb-6"
           >
-            Love Our <span className="text-yellow-500">Work?</span>
+            Love Our <span className="text-pink-500">Work?</span>
           </motion.h2>
 
           {/* Text */}
-
           <motion.p
             variants={item}
             className="text-gray-300 text-lg max-w-xl mx-auto mb-10"
           >
-            Let's design your dream space together and bring your vision
-            to life with innovative architecture and interior design.
+            Let’s design your dream space together. At Pink Roof Interiors, 
+            we create elegant, functional and personalized interiors that 
+            truly reflect your lifestyle.
           </motion.p>
 
           {/* Button */}
           <Link to="/contact-form">
-
-
-
-          <motion.button
-            variants={item}
-            whileHover={{
-              scale: 1.08,
-              boxShadow: "0px 0px 25px rgba(234,179,8,0.6)"
-            }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-yellow-500 text-black px-10 py-4 rounded-xl font-semibold shadow-lg hover:bg-yellow-400 transition"
-          >
-            Get Free Consultation
-          </motion.button>
+            <motion.button
+              variants={item}
+              whileHover={{
+                scale: 1.08,
+                boxShadow: "0px 0px 25px rgba(236,72,153,0.6)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-pink-500 text-black px-10 py-4 rounded-xl font-semibold 
+              shadow-lg shadow-pink-500/40 hover:bg-pink-400 transition"
+            >
+              Get Free Consultation
+            </motion.button>
           </Link>
 
         </motion.div>
