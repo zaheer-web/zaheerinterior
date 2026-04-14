@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 
-// ✅ Clean imports
 import img1 from "../img/h-5.png";
 import img2 from "../img/h-6.png";
 
@@ -16,11 +15,11 @@ const points = [
 
 function WhyChoose() {
   return (
-    <section className="relative py-16 bg-black text-white overflow-hidden">
+    <section className="relative py-16 bg-gradient-to-b from-pink-50 via-white to-pink-100 text-gray-900 overflow-hidden">
 
       {/* Glow */}
-      <div className="absolute -top-20 -left-20 w-80 h-80 bg-pink-500/20 blur-[120px] rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-400/20 blur-[120px] rounded-full"></div>
+      <div className="absolute -top-20 -left-20 w-80 h-80 bg-pink-300/30 blur-[120px] rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-200/30 blur-[120px] rounded-full"></div>
 
       <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
 
@@ -33,10 +32,10 @@ function WhyChoose() {
         >
 
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-            Why <span className="text-pink-500">Choose Us</span>
+            Why <span className="text-pink-400">Choose Us</span>
           </h2>
 
-          <p className="mt-6 text-gray-400 leading-relaxed max-w-xl mx-auto lg:mx-0">
+          <p className="mt-6 text-gray-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
             We design with purpose — combining creativity, practicality, and precision 
             to deliver spaces that feel refined, functional, and truly yours.
           </p>
@@ -45,12 +44,16 @@ function WhyChoose() {
           <div className="mt-10 space-y-5">
             {points.map((item, index) => (
               <div key={index} className="flex items-start gap-3 justify-center lg:justify-start group">
-                <div className="bg-pink-500 text-black p-2 rounded-full mt-1 shadow-md shadow-pink-500/40 group-hover:scale-110 transition">
+                
+                {/* Icon */}
+                <div className="bg-pink-300 text-black p-2 rounded-full mt-1 shadow-md shadow-pink-300/40 group-hover:scale-110 transition">
                   <CheckCircle size={18}/>
                 </div>
-                <p className="text-gray-300 leading-relaxed max-w-lg group-hover:text-white transition">
+
+                <p className="text-gray-700 leading-relaxed max-w-lg group-hover:text-gray-900 transition">
                   {item}
                 </p>
+
               </div>
             ))}
           </div>
@@ -64,7 +67,7 @@ function WhyChoose() {
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="overflow-hidden rounded-2xl shadow-xl"
+            className="overflow-hidden rounded-2xl shadow-lg"
           >
             <img
               src={img1}
@@ -77,7 +80,7 @@ function WhyChoose() {
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="overflow-hidden rounded-2xl shadow-xl lg:row-span-2"
+            className="overflow-hidden rounded-2xl shadow-lg lg:row-span-2"
           >
             <img
               src={img2}
@@ -91,7 +94,7 @@ function WhyChoose() {
             initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="bg-gradient-to-br from-pink-500 to-pink-400 text-black flex flex-col justify-center items-center text-center p-10 rounded-2xl shadow-xl shadow-pink-500/40"
+            className="bg-gradient-to-br from-pink-300 to-pink-200 text-black flex flex-col justify-center items-center text-center p-10 rounded-2xl shadow-lg shadow-pink-300/40"
           >
             <h2 className="text-4xl md:text-5xl font-extrabold">50+</h2>
             <p className="mt-2 text-sm font-semibold tracking-wider uppercase">

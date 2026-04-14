@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
-// ✅ Import images
+// Images
 import beforeImg from  "../img/h-14.png";
 import afterImg from "../img/h-62.png";
 
@@ -53,20 +53,20 @@ const BeforeAfter = () => {
   };
 
   return (
-    <section className="relative py-16 bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden">
+    <section className="relative py-16 bg-gradient-to-b from-pink-50 via-white to-pink-100 text-gray-900 overflow-hidden">
 
       {/* Glow */}
-      <div className="absolute -top-20 left-0 w-96 h-96 bg-pink-500/10 blur-[140px] rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-400/10 blur-[140px] rounded-full"></div>
+      <div className="absolute -top-20 left-0 w-96 h-96 bg-pink-300/30 blur-[140px] rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-200/30 blur-[140px] rounded-full"></div>
 
       <div className="max-w-6xl mx-auto px-6">
 
         {/* Heading */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold">
-            Before <span className="text-pink-500">&</span> After
+            Before <span className="text-pink-400">&</span> After
           </h2>
-          <p className="text-gray-400 mt-4">
+          <p className="text-gray-600 mt-4">
             Transforming spaces with thoughtful design and execution
           </p>
         </div>
@@ -74,7 +74,7 @@ const BeforeAfter = () => {
         {/* Slider */}
         <div
           ref={containerRef}
-          className="relative w-full h-[420px] rounded-2xl overflow-hidden shadow-2xl select-none"
+          className="relative w-full h-[420px] rounded-2xl overflow-hidden shadow-xl select-none"
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
           onMouseMove={handleMouseMove}
@@ -111,10 +111,10 @@ const BeforeAfter = () => {
           >
 
             {/* Line */}
-            <div className="w-[2px] h-full bg-white/70"></div>
+            <div className="w-[2px] h-full bg-white/80"></div>
 
             {/* Circle */}
-            <div className="absolute w-10 h-10 rounded-full bg-pink-500 border-4 border-white shadow-lg shadow-pink-500/50 flex items-center justify-center">
+            <div className="absolute w-10 h-10 rounded-full bg-pink-300 border-4 border-white shadow-lg shadow-pink-300/40 flex items-center justify-center">
               <div className="w-2 h-2 bg-white rounded-full"></div>
             </div>
 

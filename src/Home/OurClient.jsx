@@ -37,26 +37,26 @@ const testimonials = [
 
 export default function OurClient() {
   return (
-    <section className="relative py-20 bg-black text-white overflow-hidden">
+    <section className="relative py-20 bg-gradient-to-b from-pink-50 via-white to-pink-100 text-gray-900 overflow-hidden">
 
-      {/* 🔥 Pink Glow */}
-      <div className="absolute -top-20 -left-20 w-96 h-96 bg-pink-500/20 blur-[140px] rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-400/20 blur-[140px] rounded-full"></div>
+      {/* Glow */}
+      <div className="absolute -top-20 -left-20 w-96 h-96 bg-pink-300/30 blur-[140px] rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-200/30 blur-[140px] rounded-full"></div>
 
       <div className="max-w-7xl mx-auto px-6 text-center">
 
         <h2 className="text-4xl md:text-5xl font-extrabold mb-10">
-          Our <span className="text-pink-500">Clients</span>
+          Our <span className="text-pink-400">Clients</span>
         </h2>
 
         <Swiper
           modules={[Autoplay, Pagination]}
           autoplay={{ delay: 3500 }}
-          pagination={{ el: ".custom-pagination", clickable: true }}
+          pagination={{ clickable: true }}
           loop
           centeredSlides
           spaceBetween={20}
-          className="py-20 overflow-visible"
+          className="py-20"
           breakpoints={{
             320: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
@@ -65,26 +65,23 @@ export default function OurClient() {
         >
 
           {testimonials.map((item, index) => (
-            <SwiperSlide
-              key={index}
-              className="flex justify-center items-center py-10"
-            >
+            <SwiperSlide key={index} className="flex justify-center py-10">
               {({ isActive }) => (
                 <div
-                  className={`w-[90%] sm:w-[320px] mx-auto flex flex-col justify-between items-center text-center p-10 rounded-2xl transition-all duration-500 backdrop-blur-md border border-white/10
+                  className={`w-[90%] sm:w-[320px] p-10 rounded-2xl transition-all duration-500 text-center flex flex-col items-center border
                   
                   ${
                     isActive
-                      ? "scale-105 bg-white/10 shadow-2xl border-pink-500"
-                      : "scale-95 bg-white/5 shadow-lg"
+                      ? "scale-105 bg-white shadow-2xl border-pink-300 shadow-pink-200/50"
+                      : "scale-95 bg-white/70 shadow-md border-gray-200"
                   }`}
                 >
 
                   {/* Quote */}
-                  <Quote className="text-pink-500 mb-1" size={36} />
+                  <Quote className="text-pink-400 mb-2" size={34} />
 
                   {/* Text */}
-                  <p className="text-gray-300 italic text-sm leading-relaxed">
+                  <p className="text-gray-600 italic text-sm leading-relaxed">
                     {item.text}
                   </p>
 
@@ -96,17 +93,17 @@ export default function OurClient() {
                   </div>
 
                   {/* Avatar */}
-                  <div className="w-14 h-14 rounded-full bg-pink-500 text-black flex items-center justify-center text-lg font-bold mt-6 shadow-md shadow-pink-500/40">
+                  <div className="w-14 h-14 rounded-full bg-pink-300 text-black flex items-center justify-center text-lg font-bold mt-6 shadow-md shadow-pink-300/40">
                     {item.name.charAt(0)}
                   </div>
 
                   {/* Name */}
-                  <h4 className="mt-3 font-semibold text-white">
+                  <h4 className="mt-3 font-semibold text-gray-900">
                     {item.name}
                   </h4>
 
                   {/* Role */}
-                  <p className="text-sm text-gry-400">
+                  <p className="text-sm text-gray-500">
                     {item.role}
                   </p>
 
@@ -116,8 +113,6 @@ export default function OurClient() {
           ))}
 
         </Swiper>
-
-        <div className="custom-pagination mt-2"></div>
 
       </div>
     </section>

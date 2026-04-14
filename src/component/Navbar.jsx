@@ -9,38 +9,32 @@ export default function Navbar() {
 
   const navLinkClass = ({ isActive }) =>
     isActive
-      ? "text-pink-500 border-b-2 border-pink-500 pb-1"
-      : "text-gray-300 hover:text-pink-400 transition duration-300";
+      ? "text-pink-400 border-b-2 border-pink-300 pb-1"
+      : "text-gray-700 hover:text-pink-400 transition duration-300";
 
   return (
-    <nav
-      className="fixed w-full top-0 left-0 z-50 
-      bg-gradient-to-r from-black via-black/90 to-black/80 
-      backdrop-blur-xl border-b border-white/10
-      before:absolute before:inset-0 before:bg-[url('https://www.transparenttextures.com/patterns/asfalt-light.png')] before:opacity-10 before:pointer-events-none"
-    >
-      <div className="relative max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+    <nav className="fixed w-full top-0 left-0 z-50 
+    bg-white/70 backdrop-blur-xl 
+    border-b border-pink-200 shadow-sm">
 
-        {/* 🔥 Logo + Name */}
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+
+        {/* Logo */}
         <Link to="/" className="flex items-center gap-2 md:gap-3 group">
-          
-          {/* Logo */}
           <img
             src={logo}
             alt="logo"
             className="h-10 md:h-12 w-auto object-contain pt-2"
           />
 
-          {/* Brand Name */}
           <div className="flex items-center gap-1 leading-none">
-            <span className="text-white text-base md:text-lg font-bold tracking-wide group-hover:text-pink-400 transition">
+            <span className="text-black text-base md:text-lg font-bold tracking-wide group-hover:text-pink-400 transition">
               Pink Roof
             </span>
-            <span className="text-pink-500 text-sm md:text-base font-semibold tracking-wide">
+            <span className="text-pink-400 text-sm md:text-base font-semibold tracking-wide">
               Interiors
             </span>
           </div>
-
         </Link>
 
         {/* Desktop Menu */}
@@ -52,7 +46,7 @@ export default function Navbar() {
           <NavLink to="/contact" className={navLinkClass}>CONTACT</NavLink>
         </ul>
 
-        {/* Desktop Button */}
+        {/* Button */}
         <a
           href="https://wa.me/918563980030?text=Hello%2C%20I%20want%20interior%20design%20consultation."
           target="_blank"
@@ -62,21 +56,23 @@ export default function Navbar() {
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
             className="hidden md:flex items-center gap-2 
-            bg-pink-500 text-black px-6 py-2 rounded-lg font-semibold 
-            hover:bg-pink-400 transition shadow-lg shadow-pink-500/40"
+            bg-gradient-to-r from-pink-300 via-pink-400 to-pink-300 
+            text-black px-6 py-2 rounded-full font-semibold 
+            shadow-md hover:shadow-pink-300/40 transition"
           >
             GET STARTED <Plus size={18} />
           </motion.button>
         </a>
 
-        {/* Hamburger */}
-        <div className="md:hidden text-white">
+        {/* Mobile Icon */}
+        <div className="md:hidden text-black">
           {menuOpen ? (
             <X size={30} onClick={() => setMenuOpen(false)} />
           ) : (
             <Menu size={30} onClick={() => setMenuOpen(true)} />
           )}
         </div>
+
       </div>
 
       {/* Mobile Menu */}
@@ -84,9 +80,9 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden bg-black/95 backdrop-blur-lg border-t border-white/10"
+          className="md:hidden bg-white/95 backdrop-blur-lg border-t border-pink-200 shadow-lg"
         >
-          <ul className="flex flex-col gap-6 p-6 font-semibold">
+          <ul className="flex flex-col gap-6 p-6 font-semibold text-center">
 
             <NavLink to="/" onClick={() => setMenuOpen(false)} className={navLinkClass}>HOME</NavLink>
             <NavLink to="/services" onClick={() => setMenuOpen(false)} className={navLinkClass}>SERVICES</NavLink>
@@ -102,8 +98,8 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
             >
               <button className="mt-4 w-full flex justify-center items-center gap-2 
-              bg-pink-500 text-black px-6 py-3 rounded-lg font-semibold 
-              hover:bg-pink-400 transition shadow-md shadow-pink-500/40">
+              bg-pink-300 text-black px-6 py-3 rounded-full font-semibold 
+              shadow-md hover:bg-pink-400 transition">
                 GET STARTED <Plus size={18} />
               </button>
             </a>

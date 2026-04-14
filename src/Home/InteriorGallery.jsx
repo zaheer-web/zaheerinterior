@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
-// ✅ Import Images
+// Images
 import img1 from "../img/h-7.png";
 import img2 from "../img/h-8.png";
 import img3 from "../img/h-9.png";
@@ -26,11 +26,11 @@ const InteriorGallery = () => {
 
   return (
 
-    <section className="relative py-16 bg-black text-white overflow-hidden">
+    <section className="relative py-16 bg-gradient-to-b from-pink-50 via-white to-pink-100 text-gray-900 overflow-hidden">
 
       {/* Glow */}
-      <div className="absolute -top-20 left-0 w-80 h-80 bg-pink-500/10 blur-[120px] rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-400/10 blur-[120px] rounded-full"></div>
+      <div className="absolute -top-20 left-0 w-80 h-80 bg-pink-300/30 blur-[120px] rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-200/30 blur-[120px] rounded-full"></div>
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -41,7 +41,7 @@ const InteriorGallery = () => {
           transition={{ duration:0.7 }}
           className="text-4xl md:text-5xl font-extrabold text-center mb-16"
         >
-          Interior <span className="text-pink-500">Gallery</span>
+          Interior <span className="text-pink-400">Gallery</span>
         </motion.h2>
 
         {/* GRID */}
@@ -52,7 +52,7 @@ const InteriorGallery = () => {
             <motion.div
               key={i}
               whileHover={{ scale:1.04 }}
-              className="relative overflow-hidden rounded-xl shadow-xl cursor-pointer group"
+              className="relative overflow-hidden rounded-xl shadow-lg cursor-pointer group bg-white"
               onClick={() => setIndex(i)}
             >
 
@@ -63,7 +63,7 @@ const InteriorGallery = () => {
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-pink-500/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-pink-300/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
 
             </motion.div>
 
@@ -82,13 +82,13 @@ const InteriorGallery = () => {
             initial={{ opacity:0 }}
             animate={{ opacity:1 }}
             exit={{ opacity:0 }}
-            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center"
+            className="fixed inset-0 bg-white/95 backdrop-blur-md z-50 flex items-center justify-center"
           >
 
             {/* Close */}
             <button
               onClick={() => setIndex(null)}
-              className="absolute top-8 right-8 text-white hover:text-pink-500 transition"
+              className="absolute top-8 right-8 text-gray-800 hover:text-pink-400 transition"
             >
               <X size={32}/>
             </button>
@@ -96,7 +96,7 @@ const InteriorGallery = () => {
             {/* Left */}
             <button
               onClick={prev}
-              className="absolute left-6 text-white hover:text-pink-500 transition"
+              className="absolute left-6 text-gray-800 hover:text-pink-400 transition"
             >
               <ChevronLeft size={40}/>
             </button>
@@ -108,13 +108,13 @@ const InteriorGallery = () => {
               initial={{ scale:0.9, opacity:0 }}
               animate={{ scale:1, opacity:1 }}
               transition={{ duration:0.4 }}
-              className="max-h-[80vh] rounded-xl shadow-2xl shadow-pink-500/20"
+              className="max-h-[80vh] rounded-xl shadow-xl shadow-pink-300/30"
             />
 
             {/* Right */}
             <button
               onClick={next}
-              className="absolute right-6 text-white hover:text-pink-500 transition"
+              className="absolute right-6 text-gray-800 hover:text-pink-400 transition"
             >
               <ChevronRight size={40}/>
             </button>
