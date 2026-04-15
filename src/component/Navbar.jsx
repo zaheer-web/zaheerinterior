@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, Plus } from "lucide-react";
 import { NavLink, Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -6,17 +6,43 @@ import logo from "../img/logo.png";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
+  // 👇 Scroll detect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // 👇 Desktop NavLink (dynamic)
   const navLinkClass = ({ isActive }) =>
     isActive
-      ? "text-pink-400 border-b-2 border-pink-300 pb-1"
-      : "text-gray-700 hover:text-pink-400 transition duration-300";
+      ? `${
+          scrolled ? "text-black" : "text-white"
+        } border-b-2 border-pink-400 pb-1 transition-colors duration-300`
+      : `${
+          scrolled ? "text-black" : "text-white"
+        } hover:text-pink-400 transition duration-300`;
+
+  // 👇 Mobile NavLink (always black)
+  const mobileNavLinkClass = ({ isActive }) =>
+    isActive
+      ? "text-black border-b-2 border-pink-400 pb-1"
+      : "text-black hover:text-pink-400 transition duration-300";
 
   return (
-    <nav className="fixed w-full top-0 left-0 z-50 
-    bg-white/70 backdrop-blur-xl 
-    border-b border-pink-200 shadow-sm">
-
+    <nav
+      className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 
+      ${
+        scrolled
+          ? "bg-white/80 backdrop-blur-xl border-b border-pink-200 shadow-md"
+          : "bg-transparent"
+      }`}
+    >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
 
         {/* Logo */}
@@ -28,10 +54,18 @@ export default function Navbar() {
           />
 
           <div className="flex items-center gap-1 leading-none">
-            <span className="text-black text-base md:text-lg font-bold tracking-wide group-hover:text-black transition">
+            <span
+              className={`text-base md:text-lg font-bold tracking-wide transition-colors duration-300 ${
+                scrolled ? "text-black" : "text-white"
+              }`}
+            >
               Pink Roof
             </span>
-            <span className="text-black text-sm md:text-base font-semibold tracking-wide">
+            <span
+              className={`text-sm md:text-base font-semibold tracking-wide transition-colors duration-300 ${
+                scrolled ? "text-black" : "text-white"
+              }`}
+            >
               Interiors
             </span>
           </div>
@@ -65,14 +99,17 @@ export default function Navbar() {
         </a>
 
         {/* Mobile Icon */}
-        <div className="md:hidden text-black">
+        <div
+          className={`md:hidden transition-colors duration-300 ${
+            scrolled ? "text-black" : "text-white"
+          }`}
+        >
           {menuOpen ? (
             <X size={30} onClick={() => setMenuOpen(false)} />
           ) : (
             <Menu size={30} onClick={() => setMenuOpen(true)} />
           )}
         </div>
-
       </div>
 
       {/* Mobile Menu */}
@@ -84,11 +121,11 @@ export default function Navbar() {
         >
           <ul className="flex flex-col gap-6 p-6 font-semibold text-center">
 
-            <NavLink to="/" onClick={() => setMenuOpen(false)} className={navLinkClass}>HOME</NavLink>
-            <NavLink to="/services" onClick={() => setMenuOpen(false)} className={navLinkClass}>SERVICES</NavLink>
-            <NavLink to="/about" onClick={() => setMenuOpen(false)} className={navLinkClass}>ABOUT</NavLink>
-            <NavLink to="/gallery" onClick={() => setMenuOpen(false)} className={navLinkClass}>GALLERY</NavLink>
-            <NavLink to="/contact" onClick={() => setMenuOpen(false)} className={navLinkClass}>CONTACT</NavLink>
+            <NavLink to="/" onClick={() => setMenuOpen(false)} className={mobileNavLinkClass}>HOME</NavLink>
+            <NavLink to="/services" onClick={() => setMenuOpen(false)} className={mobileNavLinkClass}>SERVICES</NavLink>
+            <NavLink to="/about" onClick={() => setMenuOpen(false)} className={mobileNavLinkClass}>ABOUT</NavLink>
+            <NavLink to="/gallery" onClick={() => setMenuOpen(false)} className={mobileNavLinkClass}>GALLERY</NavLink>
+            <NavLink to="/contact" onClick={() => setMenuOpen(false)} className={mobileNavLinkClass}>CONTACT</NavLink>
 
             {/* Mobile Button */}
             <a
@@ -98,7 +135,7 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
             >
               <button className="mt-4 w-full flex justify-center items-center gap-2 
-              bg-pink-300 text-black px-6 py-3 rounded-full font-semibold 
+              bg-pink-300 text-white px-6 py-3 rounded-full font-semibold 
               shadow-md hover:bg-pink-400 transition">
                 GET STARTED <Plus size={18} />
               </button>

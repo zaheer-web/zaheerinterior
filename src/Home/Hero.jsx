@@ -3,10 +3,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 
 // Images
-import hero1 from "../img/h-79.jpeg";
-import hero2 from "../img/h-80.jpeg";
-import hero3 from "../img/h-78.jpeg";
-import hero4 from "../img/h-74.jpeg";
+import hero1 from "../img/h-1.webp";
+import hero2 from "../img/h-2.webp";
+import hero3 from "../img/h-3.webp";
+import hero4 from "../img/h-4.webp";
+
+
+
+
+// import hero1 from "../img/h-79.jpeg";
+// import hero2 from "../img/h-80.jpeg";
+// import hero3 from "../img/h-78.jpeg";
+// import hero4 from "../img/h-74.jpeg";
 
 const sliderImages = [hero1, hero2, hero3, hero4];
 
