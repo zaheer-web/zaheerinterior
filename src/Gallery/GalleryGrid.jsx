@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
-// ✅ IMPORT IMAGES
+// Images
 import living1 from "../img/h-62.png";
 import living2 from "../img/h-42.png";
 import kitchen1 from  "../img/h-54.png";
@@ -26,16 +26,12 @@ const categories = [
 const images = [
   { src: living1, title: "Luxury Living Room", category: "Living Room" },
   { src: living2, title: "Modern Living Room", category: "Living Room" },
-
   { src: kitchen1, title: "Modern Kitchen", category: "Kitchen" },
   { src: kitchen2, title: "White Kitchen", category: "Kitchen" },
-
   { src: bedroom1, title: "Minimal Bedroom", category: "Bedroom" },
   { src: bedroom2, title: "Luxury Bedroom", category: "Bedroom" },
-
   { src: office1, title: "Office Interior", category: "Office" },
   { src: office2, title: "Modern Workspace", category: "Office" },
-
   { src: commercial1, title: "Luxury Bathroom", category: "Commercial" },
   { src: commercial2, title: "Restaurant Interior", category: "Commercial" },
 ];
@@ -50,24 +46,19 @@ const GallerySection = () => {
       ? images
       : images.filter((img) => img.category === category);
 
-  const next = () => {
-    setIndex((prev) => (prev + 1) % filteredImages.length);
-  };
-
-  const prev = () => {
-    setIndex((prev) => (prev - 1 + filteredImages.length) % filteredImages.length);
-  };
+  const next = () => setIndex((prev) => (prev + 1) % filteredImages.length);
+  const prev = () => setIndex((prev) => (prev - 1 + filteredImages.length) % filteredImages.length);
 
   return (
-    <section className="relative py-24 bg-black text-white overflow-hidden">
+    <section className="relative py-24 bg-gradient-to-b from-pink-50 via-white to-pink-100 text-gray-900 overflow-hidden">
 
-      {/* Glow */}
-      <div className="absolute -top-20 -left-20 w-96 h-96 bg-pink-500/20 blur-[140px] rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-400/20 blur-[140px] rounded-full"></div>
+      {/* 🔥 SOFT GLOW */}
+      <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-pink-300/30 blur-[160px] rounded-full" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-pink-200/30 blur-[160px] rounded-full" />
 
       <div className="relative max-w-7xl mx-auto px-6">
 
-        {/* FILTER */}
+        {/* 🔥 FILTER */}
         <div className="mb-16 overflow-x-auto py-2">
           <div className="flex md:justify-center gap-4 whitespace-nowrap px-2">
 
@@ -81,8 +72,8 @@ const GallerySection = () => {
 
                 ${
                   category === item
-                    ? "bg-white/10 border-pink-500 text-pink-400 shadow-md shadow-pink-500/30"
-                    : "bg-white/5 border-white/10 text-gray-300 hover:border-pink-500 hover:text-pink-400"
+                    ? "bg-pink-500 text-white border-pink-500 shadow-md shadow-pink-300/40"
+                    : "bg-white border-pink-100 text-gray-700 hover:border-pink-400 hover:text-pink-500"
                 }`}
               >
                 {item}
@@ -92,27 +83,33 @@ const GallerySection = () => {
           </div>
         </div>
 
-        {/* GRID */}
+        {/* 🔥 GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 
           {filteredImages.map((item, i) => (
 
             <motion.div
               key={i}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ y: -8 }}
               onClick={() => setIndex(i)}
-              className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 cursor-pointer group hover:shadow-pink-500/20 transition"
+              className="rounded-2xl overflow-hidden bg-white border border-pink-100 shadow-md hover:shadow-pink-200/50 transition cursor-pointer group"
             >
 
-              <img
-                src={item.src}
-                alt={item.title}
-                className="w-full h-[260px] object-cover group-hover:scale-110 transition duration-700"
-              />
+              <div className="overflow-hidden">
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  className="w-full h-[260px] object-cover transition duration-700 group-hover:scale-110"
+                />
+              </div>
 
               <div className="p-6 text-center">
-                <h3 className="text-lg font-semibold">{item.title}</h3>
-                <p className="text-pink-400 text-sm mt-1">{item.category}</p>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {item.title}
+                </h3>
+                <p className="text-pink-500 text-sm mt-1">
+                  {item.category}
+                </p>
               </div>
 
             </motion.div>
@@ -123,26 +120,26 @@ const GallerySection = () => {
 
       </div>
 
-      {/* LIGHTBOX */}
+      {/* 🔥 LIGHTBOX (CLEAN) */}
       <AnimatePresence>
         {index !== null && (
-          <motion.div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center">
+          <motion.div className="fixed inset-0 bg-white/95 z-50 flex items-center justify-center">
 
-            <button onClick={() => setIndex(null)} className="absolute top-8 right-8">
+            <button onClick={() => setIndex(null)} className="absolute top-8 right-8 text-gray-900">
               <X size={32}/>
             </button>
 
-            <button onClick={prev} className="absolute left-6">
+            <button onClick={prev} className="absolute left-6 text-gray-900">
               <ChevronLeft size={40}/>
             </button>
 
             <motion.img
               key={index}
               src={filteredImages[index].src}
-              className="max-h-[80vh] rounded-xl"
+              className="max-h-[80vh] rounded-xl shadow-lg"
             />
 
-            <button onClick={next} className="absolute right-6">
+            <button onClick={next} className="absolute right-6 text-gray-900">
               <ChevronRight size={40}/>
             </button>
 

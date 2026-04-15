@@ -7,258 +7,239 @@ import axios from "axios";
 import { MapPin, Phone, Mail } from "lucide-react";
 
 const Option = [
-"Interior Design Consultation",
-"Residential Interior",
-"Office / Commercial Interior",
-"Renovation / Remodeling",
-"Other Inquiry"
+  "Interior Design Consultation",
+  "Residential Interior",
+  "Office / Commercial Interior",
+  "Renovation / Remodeling",
+  "Other Inquiry"
 ];
 
 const ContactForm = () => {
 
-const [loading,setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
-const [formData,setFormData] = useState({
-firstName:"",
-lastName:"",
-email:"",
-phone:"",
-subject:"",
-message:""
-})
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: ""
+  });
 
-const handleChange = (e)=>{
-setFormData({
-...formData,
-[e.target.name]:e.target.value
-})
-}
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
-const validateForm = ()=>{
+  const validateForm = () => {
 
-if(!formData.firstName.trim())
-return toast.error("First name is required")
+    if (!formData.firstName.trim())
+      return toast.error("First name is required");
 
-if(!formData.lastName.trim())
-return toast.error("Last name is required")
+    if (!formData.lastName.trim())
+      return toast.error("Last name is required");
 
-if(!formData.email)
-return toast.error("Email is required")
+    if (!formData.email)
+      return toast.error("Email is required");
 
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-if(!emailRegex.test(formData.email))
-return toast.error("Invalid email format")
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email))
+      return toast.error("Invalid email format");
 
-if(!formData.phone || formData.phone.length < 10)
-return toast.error("Enter valid phone number")
+    if (!formData.phone || formData.phone.length < 10)
+      return toast.error("Enter valid phone number");
 
-if(!formData.subject)
-return toast.error("Please select option")
+    if (!formData.subject)
+      return toast.error("Please select option");
 
-if(!formData.message.trim())
-return toast.error("Message is required")
+    if (!formData.message.trim())
+      return toast.error("Message is required");
 
-return true
-}
+    return true;
+  };
 
-const handleSubmit = async (e)=>{
-e.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-const isValid = validateForm()
-if(!isValid) return
+    const isValid = validateForm();
+    if (!isValid) return;
 
-try{
+    try {
+      setLoading(true);
 
-setLoading(true)
+      await axios.post(
+        "http://localhost:5000/api/contact",
+        formData
+      );
 
-// 👉 change this after backend setup
-await axios.post(
-"http://localhost:5000/api/contact",
-formData
-)
+      toast.success("Message sent successfully");
 
-toast.success("Message sent successfully")
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: ""
+      });
 
-setFormData({
-firstName:"",
-lastName:"",
-email:"",
-phone:"",
-subject:"",
-message:""
-})
+    } catch (err) {
+      toast.error("Something went wrong");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-}catch(err){
+  return (
 
-toast.error("Something went wrong")
+    <section className="relative py-24 bg-gradient-to-b from-pink-50 via-white to-pink-100 text-gray-900 overflow-hidden">
 
-}finally{
-setLoading(false)
-}
-}
+      {/* 🔥 GLOW */}
+      <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-pink-300/40 blur-[160px] rounded-full" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-pink-300/30 blur-[160px] rounded-full" />
 
-return (
+      <div className="relative max-w-7xl mx-auto px-6">
 
-<section className="relative py-28 bg-black text-white overflow-hidden">
+        <div className="grid lg:grid-cols-2 gap-14 items-center">
 
-{/* 🔥 Pink Glow */}
-<div className="absolute -top-20 -left-20 w-96 h-96 bg-pink-500/20 blur-[140px] rounded-full"></div>
-<div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-400/20 blur-[140px] rounded-full"></div>
+          {/* 🔥 LEFT INFO */}
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+          >
 
-<div className="relative max-w-7xl mx-auto px-6">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
+              Let's <span className="text-black">Talk</span>
+            </h2>
 
-<div className="grid lg:grid-cols-2 gap-14 items-center">
+            <p className="text-gray-600 mb-10 max-w-lg">
+              Have a project in mind? Let’s create something beautiful together.
+            </p>
 
-{/* LEFT */}
-<motion.div
-initial={{opacity:0,x:-60}}
-whileInView={{opacity:1,x:0}}
-transition={{duration:0.7}}
->
+            <div className="space-y-6">
 
-<h2 className="text-4xl md:text-5xl font-extrabold mb-6">
-Let's <span className="text-pink-500">Talk</span>
-</h2>
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-lg bg-pink-100 text-pink-300">
+                  <MapPin size={20} />
+                </div>
+                <p className="text-gray-700">Your City, India</p>
+              </div>
 
-<p className="text-gray-400 mb-10 leading-relaxed max-w-lg">
-Have a project in mind? Let’s create something beautiful together. 
-Reach out to Pink Roof Interiors and we’ll help bring your vision to life.
-</p>
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-lg bg-pink-100 text-pink-300">
+                  <Phone size={20} />
+                </div>
+                <p className="text-gray-700">91 85639 80030</p>
+              </div>
 
-<div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-lg bg-pink-100 text-pink-300">
+                  <Mail size={20} />
+                </div>
+                <p className="text-gray-700">contact.pinkroof@gmail.com</p>
+              </div>
 
-<div className="flex items-center gap-4">
-<div className="p-3 rounded-lg bg-white/5 border border-white/10 text-pink-500">
-<MapPin size={20}/>
-</div>
-<p className="text-gray-300">
-Your City, India
-</p>
-</div>
+            </div>
 
-<div className="flex items-center gap-4">
-<div className="p-3 rounded-lg bg-white/5 border border-white/10 text-pink-500">
-<Phone size={20}/>
-</div>
-<p className="text-gray-300">
-91 85639 80030 
-</p>
-</div>
+          </motion.div>
 
-<div className="flex items-center gap-4">
-<div className="p-3 rounded-lg bg-white/5 border border-white/10 text-pink-500">
-<Mail size={20}/>
-</div>
-<p className="text-gray-300">
-contact.pinkroof@gmail.com
-</p>
-</div>
+          {/* 🔥 FORM */}
+          <motion.form
+            onSubmit={handleSubmit}
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            className="p-10 rounded-2xl bg-white border border-pink-100 shadow-lg space-y-6"
+          >
 
-</div>
+            <div className="grid md:grid-cols-2 gap-5">
 
-</motion.div>
+              <input
+                name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                placeholder="First Name"
+                className="border border-pink-100 p-4 rounded-lg focus:border-pink-300 outline-none"
+              />
 
-{/* FORM */}
-<motion.form
-onSubmit={handleSubmit}
-initial={{opacity:0,x:60}}
-whileInView={{opacity:1,x:0}}
-transition={{duration:0.7}}
-className="relative p-10 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-xl space-y-6"
->
+              <input
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                placeholder="Last Name"
+                className="border border-pink-100 p-4 rounded-lg focus:border-pink-300 outline-none"
+              />
 
-<div className="grid md:grid-cols-2 gap-5">
+              <div>
+                <PhoneInput
+                  country={"in"}
+                  value={formData.phone}
+                  onChange={(phone) => setFormData({ ...formData, phone })}
+                  inputStyle={{
+                    width: "100%",
+                    height: "56px",
+                    borderRadius: "10px",
+                    border: "1px solid #fbcfe8"
+                  }}
+                  buttonStyle={{
+                    border: "1px solid #fbcfe8"
+                  }}
+                />
+              </div>
 
-<input
-name="firstName"
-value={formData.firstName}
-onChange={handleChange}
-placeholder="First Name"
-className="bg-white/5 border border-white/10 p-4 rounded-lg w-full text-white placeholder-gray-400 focus:outline-none focus:border-pink-500"
-/>
+              <input
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Email"
+                className="border border-pink-100 p-4 rounded-lg focus:border-pink-300 outline-none"
+              />
 
-<input
-name="lastName"
-value={formData.lastName}
-onChange={handleChange}
-placeholder="Last Name"
-className="bg-white/5 border border-white/10 p-4 rounded-lg w-full text-white placeholder-gray-400 focus:outline-none focus:border-pink-500"
-/>
+              <select
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                className="border border-pink-100 p-4 rounded-lg md:col-span-2 focus:border-pink-300 outline-none"
+              >
+                <option value="">Select Option</option>
+                {Option.map((opt, i) => (
+                  <option key={i} value={opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
 
-<div>
-<PhoneInput
-country={"in"}
-value={formData.phone}
-onChange={(phone)=>setFormData({...formData,phone})}
-inputStyle={{
-width:"100%",
-height:"56px",
-borderRadius:"10px",
-background:"rgba(255,255,255,0.05)",
-color:"white",
-border:"1px solid rgba(255,255,255,0.1)"
-}}
-buttonStyle={{
-background:"rgba(255,255,255,0.05)",
-border:"1px solid rgba(255,255,255,0.1)"
-}}
-dropdownStyle={{color:"black"}}
-/>
-</div>
+            </div>
 
-<input
-name="email"
-value={formData.email}
-onChange={handleChange}
-placeholder="Email Address"
-className="bg-white/5 border border-white/10 p-4 rounded-lg w-full text-white placeholder-gray-400 focus:outline-none focus:border-pink-500"
-/>
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              rows="5"
+              placeholder="Tell us about your project..."
+              className="border border-pink-100 p-4 rounded-lg focus:border-pink-300 outline-none"
+            />
 
-<select
-name="subject"
-value={formData.subject}
-onChange={handleChange}
-className="bg-white/5 border border-white/10 p-4 rounded-lg w-full md:col-span-2 text-white focus:outline-none focus:border-pink-500"
->
+            <button
+              type="submit"
+              disabled={loading}
+              className="bg-pink-400 hover:bg-pink-500 text-white py-4 w-full rounded-lg font-semibold transition shadow-md shadow-pink-300/40"
+            >
+              {loading ? "Sending..." : "Send Message"}
+            </button>
 
-<option value="" className="text-black">Select Option</option>
+          </motion.form>
 
-{Option.map((opt,index)=>(
-<option key={index} value={opt} className="text-black">
-{opt}
-</option>
-))}
+        </div>
 
-</select>
+      </div>
 
-</div>
+    </section>
+  );
+};
 
-<textarea
-name="message"
-value={formData.message}
-onChange={handleChange}
-placeholder="Tell us about your project..."
-rows="5"
-className="bg-white/5 border border-white/10 p-4 rounded-lg w-full text-white placeholder-gray-400 focus:outline-none focus:border-pink-500"
-/>
-
-<button
-type="submit"
-disabled={loading}
-className="bg-pink-500 hover:bg-pink-400 text-black py-4 w-full rounded-lg font-semibold transition shadow-lg shadow-pink-500/40"
->
-{loading ? "Sending..." : "Send Message"}
-</button>
-
-</motion.form>
-
-</div>
-
-</div>
-
-</section>
-
-)
-}
-
-export default ContactForm
+export default ContactForm;

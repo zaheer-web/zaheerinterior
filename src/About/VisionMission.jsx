@@ -19,33 +19,38 @@ const data = [
 
 export default function VisionMission() {
   return (
-    <section className="relative py-20 bg-black text-white overflow-hidden">
+    <section className="relative py-24 bg-gradient-to-b from-pink-50 via-pink-100 to-pink-200 text-gray-900 overflow-hidden">
 
-      {/* Glow */}
-      <div className="absolute -top-20 -left-20 w-96 h-96 bg-pink-500/20 blur-[140px] rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-400/20 blur-[140px] rounded-full"></div>
+      {/* 🔥 SOFT GLOW ONLY (no grid) */}
+      <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-pink-300/40 blur-[160px] rounded-full" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-pink-400/30 blur-[160px] rounded-full" />
+
+      {/* 🔥 BIG BG TEXT */}
+      <h1 className="absolute text-[160px] md:text-[240px] font-extrabold text-white/40 left-6 top-6 -z-10">
+        VM
+      </h1>
 
       <div className="relative max-w-6xl mx-auto px-6">
 
-        {/* Heading */}
+        {/* 🔥 HEADING */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
+          <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight">
             Our <span className="text-pink-500">Vision & Mission</span>
           </h2>
 
-          <p className="mt-6 text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            We believe great design is not just about how a space looks — 
+          <p className="mt-6 text-gray-700 max-w-2xl mx-auto leading-relaxed">
+            We believe great design is not just about how a space looks —
             but how it feels, functions, and enhances everyday experiences.
           </p>
         </motion.div>
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        {/* 🔥 GRID */}
+        <div className="grid md:grid-cols-2 gap-10">
 
           {data.map((item, index) => (
 
@@ -54,32 +59,29 @@ export default function VisionMission() {
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ y: -10 }}
-              className="group relative p-10 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-pink-500 transition overflow-hidden"
+              whileHover={{ y: -8 }}
+              className="group relative p-10 rounded-2xl bg-white/80 backdrop-blur-md border border-pink-200 hover:border-pink-400 transition shadow-md hover:shadow-pink-200/60"
             >
-
-              {/* Glow */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-pink-500/20 to-transparent"></div>
 
               <div className="relative z-10">
 
                 {/* Number */}
-                <span className="absolute top-6 right-6 text-6xl font-bold text-white/10 group-hover:text-pink-500/20 transition">
+                <span className="absolute top-6 right-6 text-6xl font-bold text-pink-200 group-hover:text-pink-300 transition">
                   {item.number}
                 </span>
 
                 {/* Icon */}
-                <div className="mb-5 text-pink-500 group-hover:scale-110 transition">
+                <div className="mb-6 text-pink-500 group-hover:scale-110 transition duration-300">
                   {item.icon}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-2xl font-semibold mb-4">
+                <h3 className="text-2xl font-semibold mb-4 text-gray-900">
                   {item.title}
                 </h3>
 
                 {/* Desc */}
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-gray-700 leading-relaxed">
                   {item.desc}
                 </p>
 

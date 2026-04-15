@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// ✅ LOCAL IMAGE IMPORT
 import villa from "../img/h-10.png";
 import urban from "../img/h-21.png";
 import residence from "../img/h-60.png";
@@ -62,24 +61,25 @@ return(
 
 <>
 
-{/* FEATURED PROJECT */}
-<section className="relative h-[80vh] flex items-center justify-center text-white overflow-hidden">
+{/* 🔥 FEATURED SECTION */}
+<section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
 
 <img
 src={projects[0].img}
 className="absolute inset-0 w-full h-full object-cover"
 />
 
-<div className="absolute inset-0 bg-black/70"></div>
+{/* ✅ FIXED OVERLAY */}
+<div className="absolute inset-0 bg-black/30"></div>
 
 <motion.div
 initial={{opacity:0,y:40}}
 whileInView={{opacity:1,y:0}}
 transition={{duration:0.8}}
-className="relative text-center max-w-3xl px-6"
+className="relative text-center max-w-3xl px-6 text-white"
 >
 
-<p className="text-pink-500 uppercase tracking-[4px] mb-4">
+<p className="text-pink-400 uppercase tracking-[4px] mb-4">
 Featured Project
 </p>
 
@@ -87,13 +87,13 @@ Featured Project
 {projects[0].title}
 </h1>
 
-<p className="text-gray-300 mb-6">
+<p className="text-gray-200 mb-6">
 {projects[0].desc}
 </p>
 
 <button
 onClick={()=>setIndex(0)}
-className="bg-pink-500 text-black px-8 py-3 rounded-lg font-semibold hover:bg-pink-400 transition shadow-lg shadow-pink-500/40"
+className="bg-pink-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-pink-600 transition shadow-lg shadow-pink-400/40"
 >
 View Project
 </button>
@@ -103,8 +103,8 @@ View Project
 </section>
 
 
-{/* PORTFOLIO GRID */}
-<section className="py-24 bg-black text-white">
+{/* 🔥 PORTFOLIO GRID */}
+<section className="py-24 bg-gradient-to-b from-pink-50 via-white to-pink-100">
 
 <div className="max-w-7xl mx-auto px-6">
 
@@ -114,7 +114,7 @@ View Project
 Our Portfolio
 </p>
 
-<h2 className="text-4xl md:text-5xl font-bold">
+<h2 className="text-4xl md:text-5xl font-bold text-gray-900">
 Selected <span className="text-pink-500">Projects</span>
 </h2>
 
@@ -129,24 +129,25 @@ key={i}
 initial={{opacity:0,y:40}}
 whileInView={{opacity:1,y:0}}
 transition={{delay:i*0.1}}
-className="relative group overflow-hidden cursor-pointer"
+className="relative group overflow-hidden cursor-pointer rounded-2xl shadow-lg"
 onClick={()=>setIndex(i)}
 >
 
 <img
 src={project.img}
-className="w-full h-[380px] object-cover group-hover:scale-110 transition duration-700"
+className="w-full h-[380px] object-cover transition duration-700 group-hover:scale-110 group-hover:brightness-90"
 />
 
-<div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-6">
+{/* ✅ FIXED HOVER (NO WHITE OVERLAY) */}
+<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-6">
 
 <div>
 
-<h3 className="text-xl font-semibold">
+<h3 className="text-xl font-semibold text-white">
 {project.title}
 </h3>
 
-<p className="text-pink-500 text-sm">
+<p className="text-pink-400 text-sm">
 {project.location}
 </p>
 
@@ -165,7 +166,7 @@ className="w-full h-[380px] object-cover group-hover:scale-110 transition durati
 </section>
 
 
-{/* LIGHTBOX */}
+{/* 🔥 LIGHTBOX */}
 <AnimatePresence>
 
 {index!==null &&(
@@ -174,7 +175,7 @@ className="w-full h-[380px] object-cover group-hover:scale-110 transition durati
 initial={{opacity:0}}
 animate={{opacity:1}}
 exit={{opacity:0}}
-className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center"
+className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center"
 >
 
 <button
@@ -184,10 +185,7 @@ className="absolute top-8 right-8 text-white"
 <X size={32}/>
 </button>
 
-<button
-onClick={prev}
-className="absolute left-6 text-white"
->
+<button onClick={prev} className="absolute left-6 text-white">
 <ChevronLeft size={40}/>
 </button>
 
@@ -202,11 +200,11 @@ src={projects[index].img}
 className="max-h-[75vh] mx-auto rounded-xl mb-6"
 />
 
-<h3 className="text-2xl font-bold">
+<h3 className="text-2xl font-bold text-white">
 {projects[index].title}
 </h3>
 
-<p className="text-pink-500 mb-2">
+<p className="text-pink-400 mb-2">
 {projects[index].location}
 </p>
 
@@ -216,10 +214,7 @@ className="max-h-[75vh] mx-auto rounded-xl mb-6"
 
 </motion.div>
 
-<button
-onClick={next}
-className="absolute right-6 text-white"
->
+<button onClick={next} className="absolute right-6 text-white">
 <ChevronRight size={40}/>
 </button>
 
@@ -230,13 +225,13 @@ className="absolute right-6 text-white"
 </AnimatePresence>
 
 
-{/* CTA */}
+{/* 🔥 CTA */}
 <section
 className="relative py-32 text-center text-white bg-cover bg-center"
 style={{ backgroundImage: `url(${ctaBg})` }}
 >
 
-<div className="absolute inset-0 bg-black/80"></div>
+<div className="absolute inset-0 bg-black/70"></div>
 
 <motion.div
 initial={{opacity:0,y:40}}
@@ -256,7 +251,7 @@ functionality and innovation.
 
 <Link to="/contact-form">
 
-<button className="bg-pink-500 text-black px-8 py-3 rounded-lg font-semibold hover:bg-pink-400 transition shadow-lg shadow-pink-500/40">
+<button className="bg-pink-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-pink-600 transition shadow-lg shadow-pink-400/40">
 Start Your Project
 </button>
 

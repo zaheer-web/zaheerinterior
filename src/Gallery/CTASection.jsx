@@ -8,9 +8,7 @@ const CTASection = () => {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
+      transition: { staggerChildren: 0.2 }
     }
   };
 
@@ -25,11 +23,11 @@ const CTASection = () => {
 
   return (
 
-    <section className="relative py-10 bg-black text-white overflow-hidden">
+    <section className="relative py-24 bg-gradient-to-b from-pink-100 via-white to-pink-50 text-gray-900 overflow-hidden">
 
-      {/* 🔥 Pink Glow */}
-      <div className="absolute -top-20 -left-20 w-96 h-96 bg-pink-500/20 blur-[140px] rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-400/20 blur-[140px] rounded-full"></div>
+      {/* 🔥 SOFT GLOW */}
+      <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-pink-300/30 blur-[160px] rounded-full" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-pink-200/30 blur-[160px] rounded-full" />
 
       <motion.div
         variants={container}
@@ -39,11 +37,11 @@ const CTASection = () => {
         className="relative max-w-5xl mx-auto px-6 text-center"
       >
 
-        {/* Glass Card */}
+        {/* 🔥 CLEAN CARD */}
         <motion.div
           variants={item}
-          whileHover={{ scale: 1.02 }}
-          className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-14 shadow-2xl hover:shadow-pink-500/20 transition"
+          whileHover={{ y: -5 }}
+          className="bg-white border border-pink-100 rounded-3xl p-12 md:p-16 shadow-lg hover:shadow-pink-200/50 transition"
         >
 
           {/* Heading */}
@@ -57,10 +55,10 @@ const CTASection = () => {
           {/* Text */}
           <motion.p
             variants={item}
-            className="text-gray-300 text-lg max-w-xl mx-auto mb-10"
+            className="text-gray-600 text-lg max-w-xl mx-auto mb-10"
           >
-            Let’s design your dream space together. At Pink Roof Interiors, 
-            we create elegant, functional and personalized interiors that 
+            Let’s design your dream space together. At Pink Roof Interiors,
+            we create elegant, functional and personalized interiors that
             truly reflect your lifestyle.
           </motion.p>
 
@@ -70,11 +68,11 @@ const CTASection = () => {
               variants={item}
               whileHover={{
                 scale: 1.08,
-                boxShadow: "0px 0px 25px rgba(236,72,153,0.6)"
+                boxShadow: "0px 10px 30px rgba(236,72,153,0.4)"
               }}
               whileTap={{ scale: 0.95 }}
-              className="bg-pink-500 text-black px-10 py-4 rounded-xl font-semibold 
-              shadow-lg shadow-pink-500/40 hover:bg-pink-400 transition"
+              className="bg-pink-500 text-white px-10 py-4 rounded-xl font-semibold 
+              shadow-md shadow-pink-300/40 hover:bg-pink-400 transition"
             >
               Get Free Consultation
             </motion.button>

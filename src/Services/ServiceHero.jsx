@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 
-// Local Images
+// Images
 import hero1 from "../img/h-62.png";
 import hero2 from "../img/h-33.png";
 import hero3 from "../img/h-23.png";
@@ -23,42 +23,44 @@ const ServiceHero = () => {
   }, []);
 
   return (
-    <div className="w-full overflow-x-hidden relative">
 
-      <section className="relative w-full h-[60vh] sm:h-[70vh] md:h-[85vh] lg:h-[95vh] overflow-hidden bg-black">
+    <div className="w-screen overflow-hidden">
 
-        {/* 🔥 Image with cinematic animation */}
+      {/* 🔥 FULL SCREEN HERO */}
+      <section className="relative w-screen h-screen overflow-hidden">
+
+        {/* 🔥 IMAGE */}
         <AnimatePresence>
           <motion.img
             key={currentIndex}
             src={sliderImages[currentIndex]}
-            initial={{ opacity: 0, scale: 1.1 }}
+            initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.2 }}
-            className="absolute inset-0 w-full h-full object-cover"
+            transition={{ duration: 1 }}
+            className="absolute top-0 left-0 w-screen h-screen object-cover"
           />
         </AnimatePresence>
 
-        {/* 🔥 Premium Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-black/95 via-black/70 to-pink-900/40 z-10" />
+        {/* 🔥 OVERLAY */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent z-10" />
 
-        {/* Content */}
-        <div className="absolute inset-0 flex items-center justify-center md:justify-start px-6 md:px-24 lg:px-32 z-20">
+        {/* 🔥 CONTENT */}
+        <div className="absolute inset-0 flex items-center justify-center md:justify-start px-6 md:px-24 z-20">
 
           <motion.div
             key={currentIndex}
-            initial={{ x: -60, opacity: 0 }}
+            initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
             className="text-center md:text-left text-white max-w-2xl"
           >
 
-            {/* Heading */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight">
+            {/* HEADING */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
 
               Our{" "}
-              <span className="text-pink-500 inline-block min-w-[260px] drop-shadow-xl">
+              <span className="text-pink-300 drop-shadow-lg">
 
                 <Typewriter
                   words={[
@@ -81,22 +83,20 @@ const ServiceHero = () => {
 
             </h1>
 
-            {/* Paragraph */}
-            <p className="mt-6 text-lg text-gray-300 max-w-lg mx-auto md:mx-0 leading-relaxed">
-
-              We offer end-to-end interior design solutions — from concept to execution — 
+            {/* TEXT */}
+            <p className="mt-6 text-lg text-gray-200 max-w-lg mx-auto md:mx-0">
+              We offer end-to-end interior design solutions — from concept to execution —
               creating spaces that are elegant, functional, and tailored to your vision.
-
             </p>
 
-            {/* 🔥 CTA */}
+            {/* CTA */}
             <div className="mt-8">
               <a
                 href="https://wa.me/918563980030"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <button className="bg-pink-500 text-black px-6 py-3 rounded-lg font-semibold hover:bg-pink-400 transition shadow-lg shadow-pink-500/40">
+                <button className="bg-pink-300 hover:bg-pink-400 text-white px-6 py-3 rounded-lg font-semibold transition shadow-lg shadow-pink-300/40">
                   Book Consultation
                 </button>
               </a>
@@ -106,17 +106,17 @@ const ServiceHero = () => {
 
         </div>
 
-        {/* Dots */}
+        {/* 🔥 DOTS */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-30">
 
           {sliderImages.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`h-2 transition-all duration-300 rounded-full ${
+              className={`h-2 rounded-full transition-all duration-300 ${
                 currentIndex === index
-                  ? "w-10 bg-pink-500 shadow-lg shadow-pink-500/50"
-                  : "w-2 bg-white/40"
+                  ? "w-10 bg-pink-300"
+                  : "w-2 bg-white/50"
               }`}
             />
           ))}
@@ -126,7 +126,9 @@ const ServiceHero = () => {
       </section>
 
     </div>
+
   );
+
 };
 
 export default ServiceHero;
