@@ -3,17 +3,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Images
-import img1 from "../img/h-7.png";
-import img2 from "../img/h-8.png";
-import img3 from "../img/h-9.png";
-import img4 from "../img/h-10.png";
-import img5 from "../img/h-12.png";
-import img6 from "../img/h-14.png";
+import img1 from "../img/h-11.png";
+import img2 from "../img/h-19.png";
+import img3 from "../img/h-49.png";
+import img4 from "../img/h-50.png";
+import img5 from "../img/h-51.png";
+import img6 from "../img/h-54.png";
 
 const images = [img1, img2, img3, img4, img5, img6];
 
 const InteriorGallery = () => {
-
   const [index, setIndex] = useState(null);
 
   const next = () => {
@@ -25,10 +24,9 @@ const InteriorGallery = () => {
   };
 
   return (
-
     <section className="relative py-16 bg-gradient-to-b from-pink-50 via-white to-pink-100 text-gray-900 overflow-hidden">
 
-      {/* Glow */}
+      {/* Glow Effects */}
       <div className="absolute -top-20 left-0 w-80 h-80 bg-pink-300/30 blur-[120px] rounded-full"></div>
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-pink-200/30 blur-[120px] rounded-full"></div>
 
@@ -44,8 +42,8 @@ const InteriorGallery = () => {
           Interior <span className="text-pink-400">Gallery</span>
         </motion.h2>
 
-        {/* GRID */}
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+        {/* ✅ GRID (FIXED) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
           {images.map((img, i) => (
 
@@ -56,10 +54,11 @@ const InteriorGallery = () => {
               onClick={() => setIndex(i)}
             >
 
+              {/* ✅ SAME SIZE IMAGE */}
               <img
                 src={img}
                 alt={`Project ${i + 1}`}
-                className="w-full object-cover transition duration-700 group-hover:scale-110"
+                className="w-full h-[260px] md:h-[280px] object-cover transition duration-700 group-hover:scale-110"
               />
 
               {/* Overlay */}
@@ -73,7 +72,7 @@ const InteriorGallery = () => {
 
       </div>
 
-      {/* LIGHTBOX */}
+      {/* ✅ LIGHTBOX */}
       <AnimatePresence>
 
         {index !== null && (
@@ -108,7 +107,7 @@ const InteriorGallery = () => {
               initial={{ scale:0.9, opacity:0 }}
               animate={{ scale:1, opacity:1 }}
               transition={{ duration:0.4 }}
-              className="max-h-[80vh] rounded-xl shadow-xl shadow-pink-300/30"
+              className="max-h-[80vh] max-w-[90vw] rounded-xl shadow-xl shadow-pink-300/30 object-contain"
             />
 
             {/* Right */}
@@ -126,7 +125,6 @@ const InteriorGallery = () => {
       </AnimatePresence>
 
     </section>
-
   );
 };
 

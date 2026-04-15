@@ -2,9 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
 
-import img1 from "../img/h-2.png";
-import img2 from "../img/h-3.png";
-import img3 from "../img/h-4.png";
+import img1 from "../img/h-74.jpeg";
+import img2 from "../img/h-77.jpeg";
+import img3 from "../img/h-75.jpeg";
 
 function About() {
   return (

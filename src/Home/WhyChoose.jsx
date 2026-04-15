@@ -2,8 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 
-import img1 from "../img/h-5.png";
-import img2 from "../img/h-6.png";
+import img1 from "../img/h-11.png";
+import img2 from "../img/h-22.png";
 
 const points = [
   "Timeless, context-driven designs tailored to your space.",

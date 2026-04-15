@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 
 // Images
-import hero1 from "../img/h-54.png";
-import hero2 from "../img/h-57.png";
-import hero3 from "../img/h-62.png";
-import hero4 from "../img/h-53.png";
+import hero1 from "../img/h-79.jpeg";
+import hero2 from "../img/h-80.jpeg";
+import hero3 from "../img/h-78.jpeg";
+import hero4 from "../img/h-74.jpeg";
 
 const sliderImages = [hero1, hero2, hero3, hero4];
 
@@ -21,36 +21,32 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="w-full overflow-x-hidden">
-      <section className="relative w-full h-[60vh] sm:h-[70vh] md:h-[85vh] lg:h-[95vh] overflow-hidden bg-black">
+    <div className="w-full overflow-hidden">
+      <section className="relative w-full h-screen overflow-hidden">
 
-        {/* Image */}
+        {/* 🔥 IMAGE (FULL WIDTH FIX) */}
         <AnimatePresence>
           <motion.img
             key={currentIndex}
             src={sliderImages[currentIndex]}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
         </AnimatePresence>
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/60 z-10" />
+        {/* 🔥 OVERLAY */}
+        <div className="absolute inset-0 bg-black/50 z-10" />
 
-        {/* Content */}
+        {/* 🔥 CONTENT */}
         <div className="absolute inset-0 flex items-center justify-center md:justify-start px-6 md:px-24 z-20">
           <div className="text-center md:text-left text-white max-w-2xl">
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-
               Luxury{" "}
-
-              {/* ✅ Pink Text */}
               <span className="text-pink-300">
-
                 <Typewriter
                   words={[
                     "Interior Design",
@@ -64,26 +60,21 @@ const Hero = () => {
                   deleteSpeed={50}
                   delaySpeed={1500}
                 />
-
               </span>
-
               <br />
-
-              {/* Gold Studio */}
-              <span className="text-white">
-                Studio
-              </span>
-
+              <span>Studio</span>
             </h1>
 
-            <p className="mt-6 text-gray-300 text-lg">
-              Crafting refined interiors that blend luxury, functionality, and timeless aesthetics.
+            <p className="mt-6 text-lg">
+              Bespoke interiors for government, commercial, and residential realms
+              masterfully crafted from vision to victory with unrivaled precision
+              and enduring elegance.
             </p>
 
           </div>
         </div>
 
-        {/* Dots */}
+        {/* 🔥 DOTS */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-30">
           {sliderImages.map((_, index) => (
             <button

@@ -28,10 +28,10 @@ export default function Navbar() {
           />
 
           <div className="flex items-center gap-1 leading-none">
-            <span className="text-black text-base md:text-lg font-bold tracking-wide group-hover:text-pink-400 transition">
+            <span className="text-black text-base md:text-lg font-bold tracking-wide group-hover:text-black transition">
               Pink Roof
             </span>
-            <span className="text-pink-400 text-sm md:text-base font-semibold tracking-wide">
+            <span className="text-black text-sm md:text-base font-semibold tracking-wide">
               Interiors
             </span>
           </div>
